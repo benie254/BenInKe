@@ -1,0 +1,381 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yeon+Sung&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Denk+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Stylish&display=swap');
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.denk{
+    font-family: 'Denk One' sans-serif;
+}
+h1, .head1{
+    font-family: 'Alegreya Sans SC';
+    font-size: 36px;
+}
+h2, h3, h4, h5 {
+    font-family: 'Denk One', sans-serif;
+}
+h2{
+    font-size: 20px;
+}
+h3{
+    font-size: larger;
+}
+h4{
+    font-size: large;
+}
+h5{
+    font-size: medium;
+}
+h6, i{
+    font-family: 'Yeon Sung';
+    
+}
+h2 a{
+    font-size:26px;
+}
+h3 a{
+    font-size: 20px;
+} 
+p, a, span{
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: medium;
+}
+small{
+    font-family: 'Stylish', sans-serif;
+}
+
+
+small{
+    font-size: smaller;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Josefin Sans', sans-serif; }
+
+.center{
+    display:inline-block;
+    text-align:center;
+}
+.hover-img{
+    transition: transform .6s ease;
+}
+.hover-img:hover{
+    transform: scale(1.09);
+    
+}
+
+#readBg, #readSBg, #reader, .dark{
+    background-color: rgb(33, 33, 33);
+    color: whitesmoke;
+}
+#comments, #content-2, #search, #filter, .light, #mySearch, #recent, #related, #expansion{
+    color: whitesmoke;
+}
+#content,.content, #content-1, #sContent, #comment, #comments, #expansion, #content-2, #search, #filter, #related, #recent{
+    background-color: rgb(31, 39, 44);
+}
+input::placeholder{
+    color:white;
+}
+a:hover, .poemTitle:hover{
+    color: blueviolet;
+}
+.divide {
+    display: flex;
+    flex-direction: row;
+}
+.divide:before, .divide:after{
+    content: "";
+    flex: 1 1;
+    border-bottom: 1px solid;
+    margin: auto;
+}
+.divide:before {
+    margin-right: 10px
+}
+.divide:after {
+    margin-left: 10px
+}
+.col2{
+    color:rgb(185, 121, 0)
+}
+.col1{
+    color: blueviolet;
+}
+.zoom{
+    transition: transform 1s;
+    }
+.zoom:hover{
+    transform: scale(1.55);
+}
+.zoom-x1{
+    transition: transform 1s;
+    }
+.zoom-x1:hover{
+    transform: scale(2);
+}
+.padding-xsm{
+    padding: 0.5%;
+}
+.padding-sm{
+    padding: 1%;
+}
+.padding-md{
+    padding: 1.5%;
+}
+.padding-lg{
+    padding: 2.5%;
+}
+.padding-xl{
+    padding: 3.5%;
+}
+.padding-xxl{
+    padding: 4%;
+}
+.padding-xxl{
+    padding: 5%;
+}
+.padding-xsm{
+    padding: 0.5%;
+}
+.padding-sm{
+    padding: 1%;
+}
+.padding-md{
+    padding: 1.5%;
+}
+.padding-lg{
+    padding: 2.5%;
+}
+.padding-xl{
+    padding: 3.5%;
+}
+.padding-xxl{
+    padding: 4%;
+}
+.padding-xxl{
+    padding: 5%;
+}
+.margin-xsm{
+    margin: 0.5%;
+}
+.margin-sm{
+    margin: 1%;
+}
+.margin-md{
+    margin: 1.5%;
+}
+.margin-lg{
+    margin: 2.5%;
+}
+.margin-xl{
+    margin: 3.5%;
+}
+.margin-xxl{
+    margin: 4%;
+}
+.margin-xxl{
+    margin: 5%;
+}
+.max-width{
+    max-width: 100%;
+}
+.max-height{
+    max-height: 100%;
+}
+.full-height{
+    height: 100vh;
+}
+.min-width{
+    min-width: 100%;
+}
+.min-height{
+    min-height: 100%;
+}
+.height-auto{
+    height: auto;
+}
+.float-left{
+    float: left;
+}
+.float-right{
+    float: right;
+}
+.border-50{
+    border-radius:50%;
+}
+.xxsm{
+    font-size:xx-small;
+}
+.xsm{
+    font-size: x-small;
+}
+.smaller{
+    font-size: smaller;
+}
+.sm{
+    font-size: small;
+}
+.md{
+    font-size: medium;
+}
+.lg{
+    font-size: large;
+}
+.larger{
+    font-size: larger;
+}
+.xl{
+    font-size: x-large;
+}
+.xxl{
+    font-size: xx-large;
+}
+.welcome{
+    color: orange;
+}
+.hide{
+    display: none;
+}
+textarea{
+    height:100px;width:200px;
+}
+.top{
+    opacity:0.95;font-weight: bolder;
+}
+.myReader{
+    line-height:24px;
+    font-family:monospace;
+}
+.pic{
+    width:75px;
+    height:35px;
+}
+.feat{
+    width: 100px;
+    height: 140px;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 480px) {
+    .cardImg{
+        max-height:480px;
+        width:100%;
+    }
+    #back, #follow, #toggle, #share{
+        font-size: xx-small;
+    }
+    .footer{
+        font-size:1px;
+    }
+    .featImg{
+        min-height:420px;
+        width:100%;
+    }
+}
+
+@media only screen and (min-width: 480px) {
+    .cardImg{
+        height:290px;
+        width:220px;
+    }
+}
+
+@media only screen and (min-width: 552px){
+    .featImg{
+        min-height:420px;
+        width:100%;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .cardImg{
+        height:370px;
+        width:270px;
+    }
+}
+
+@media only screen and (max-width: 768px){
+    .storyCard{
+        max-width: 720px;
+    }
+}
+
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .cardImg{
+        height:320px;
+        width:250px;
+    }
+    .featImg{
+        height:420px;
+        width:330px;
+    }
+    .featCard{
+        width:100%;
+    }
+}
+
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .cardImg{
+        height:420px;
+        width:100%;
+    }
+    .storyCard{
+        width: 80%;
+    }
+    .featImg{
+        height:380px;
+        width:280px;
+    }
+    .featCard{
+        width:100%;
+    }
+    #discussImg{
+        min-height:250px;
+    }
+    
+}
+@media only screen and (min-width:1000px){
+    #discussImg{
+        min-height:280px;
+    }
+}
+@media only screen and (min-width:1024px){
+    #discussImg{
+        min-height:255px;
+    }
+}
+
+
+
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .cardImg{
+        height:280px;
+        width:200px;
+    }
+    .featImg{
+        height:400px;
+        width:330px;
+    }
+    .storyCard{
+        width: 100%;
+    }
+    .featCard{
+        width:100%;
+    }
+    #discussImg{
+        height:250px;
+    }
+}
