@@ -16,6 +16,6 @@ import { NavbarComponent } from './navbar/navbar.component';
   exports: [
     NavbarComponent,
     FooterComponent,
-  ]
+  ],
 })
 export class NavigationModule { }

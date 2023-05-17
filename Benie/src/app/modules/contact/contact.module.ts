@@ -18,6 +18,9 @@ import { MatButtonModule } from '@angular/material/button';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule
-  ]
+  ],
+  exports: [
+    SubscribeComponent,
+  ],
 })
 export class ContactModule { }
