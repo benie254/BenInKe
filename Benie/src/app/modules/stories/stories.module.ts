@@ -14,8 +14,9 @@ import { ResultsComponent } from './components/results/results.component';
 import { StoryPagesComponent } from './components/story-pages/story-pages.component';
 import { HomeComponent } from './home/home.component';
 import { NavComponent } from './nav/nav.component';
-import { PipesComponent } from './pipes/pipes.component';
 import { StoryFooterComponent } from './story-footer/story-footer.component';
+import { DateAgoPipe } from './pipes/date/date-ago.pipe';
+import { TruncatePipe } from './pipes/trunc/truncate.pipe';
 
 
 @NgModule({
@@ -32,8 +33,9 @@ import { StoryFooterComponent } from './story-footer/story-footer.component';
     StoryPagesComponent,
     HomeComponent,
     NavComponent,
-    PipesComponent,
-    StoryFooterComponent
+    StoryFooterComponent,
+    DateAgoPipe,
+    TruncatePipe
   ],
   imports: [
     CommonModule,
