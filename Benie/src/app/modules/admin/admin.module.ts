@@ -42,6 +42,21 @@ import { AddTagComponent } from './components/tags/add-tag/add-tag.component';
 import { EditTagComponent } from './components/tags/edit-tag/edit-tag.component';
 import { ErrorsComponent } from './errors/errors.component';
 import { ResetRequestFormComponent } from './auth/forms/reset-request-form/reset-request-form.component';
+import { HttpClientModule } from '@angular/common/http';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
+import {MatDialogModule} from '@angular/material/dialog';
+import { NgxEditorModule } from 'ngx-editor';
+import {MatExpansionModule} from '@angular/material/expansion'
+import { AngularEditorModule } from '@kolkov/angular-editor';
+import { NavigationModule } from '../navigation/navigation.module';
 
 @NgModule({
   declarations: [
@@ -90,7 +105,22 @@ import { ResetRequestFormComponent } from './auth/forms/reset-request-form/reset
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+    MatChipsModule,
+    MatTabsModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatDialogModule,
+    NgxEditorModule,
+    ReactiveFormsModule,
+    AngularEditorModule,
+    MatExpansionModule,
+    NavigationModule,
   ]
 })
 export class AdminModule { }
