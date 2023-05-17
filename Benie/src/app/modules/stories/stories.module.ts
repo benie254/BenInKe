@@ -17,7 +17,28 @@ import { NavComponent } from './nav/nav.component';
 import { StoryFooterComponent } from './story-footer/story-footer.component';
 import { DateAgoPipe } from './pipes/date/date-ago.pipe';
 import { TruncatePipe } from './pipes/trunc/truncate.pipe';
-
+import { BottomSheetOverviewExampleSheet, FollowBottomSheet } from './components/read/read.component';
+import { FollowAltBottomSheet, StoryDialog } from './components/story-pages/story-pages.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatListModule } from '@angular/material/list';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { NgxEditorModule } from 'ngx-editor';
+import { ContactModule } from '../contact/contact.module';
+import { FollowAlt2BottomSheet, ShareBottomSheet } from './components/feedback/feedback.component';
+import { RepliesBottomSheet } from './components/comments/comments.component';
 
 @NgModule({
   declarations: [
@@ -35,11 +56,44 @@ import { TruncatePipe } from './pipes/trunc/truncate.pipe';
     NavComponent,
     StoryFooterComponent,
     DateAgoPipe,
-    TruncatePipe
+    TruncatePipe,
+    BottomSheetOverviewExampleSheet,
+    StoryDialog,
+    FollowBottomSheet,
+    FollowAltBottomSheet,
+    FollowAlt2BottomSheet,
+    ShareBottomSheet,
+    RepliesBottomSheet,
+    HttpClientModule,
+    FormsModule,
+    MatButtonModule,
+    MatTabsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+    MatSlideToggleModule,
+    MatChipsModule,
+    MatStepperModule,
+    MatListModule,
+    MatBottomSheetModule,
+    MatInputModule,
+    NgxPaginationModule,
+    ReactiveFormsModule,
+    MatBadgeModule,
+    MatExpansionModule,
+    Ng2SearchPipeModule,
+    NgxEditorModule,
+    MatListModule,
+    ContactModule,
   ],
   imports: [
     CommonModule,
     StoriesRoutingModule
-  ]
+  ],
+  exports: [
+    TruncatePipe,
+    DateAgoPipe,
+    StoryFooterComponent,
+  ],
 })
 export class StoriesModule { }
