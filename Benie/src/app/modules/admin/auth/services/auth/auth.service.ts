@@ -5,9 +5,9 @@ import { map } from 'rxjs/operators';
 import { User } from '../../../classes/user/user';
 import { ReqHandlerService } from 'src/app/helpers/requests/req-handler.service';
 
-const authAPI = 'http://127.0.0.1:8000/api/benie/auth/';
+const authAPI = 'http://127.0.0.1:8000/api/user/auth/';
 // const authAPI = 'https://beniewrites-api-production.up.railway.app/benie/auth/';
-const apiURL = 'http://127.0.0.1:8000/benie/';
+const apiURL = 'http://127.0.0.1:8000/api/user/';
 // const apiURL = 'https://beniewrites-api-production.up.railway.app/benie/';
 
 @Injectable({
@@ -17,11 +17,11 @@ export class AuthService {
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
   apiLogin = authAPI + "login";
-  apiLogout = authAPI + "logout/";
-  apiUserProfile = apiURL + "user/profile/";
+  apiLogout = authAPI + "logout";
+  apiUserProfile = apiURL + "profile/";
   apiChangePass = apiURL + 'password/change/';
-  apiPassResetReq = apiURL + 'password/reset/request/';
-  apiPassResetConfirmed = apiURL + 'password/reset/confirmed/';
+  apiPassResetReq = apiURL + 'password/reset/request';
+  apiPassResetConfirmed = apiURL + 'password/reset/confirmed';
   apiReg = authAPI + 'register';
   
   constructor(

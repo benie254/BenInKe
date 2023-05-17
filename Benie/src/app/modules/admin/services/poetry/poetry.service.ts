@@ -9,7 +9,7 @@ const api = 'http://127.0.0.1:8000/api/admin/';
   providedIn: 'any'
 })
 export class AdminPoetryService {
-  addPoem = api + 'poems/add/';
+  addPoem = api + 'poems/add';
   updatePoem = api + 'poem/update/';
   commentDet = api + 'feedback/details/';
 
