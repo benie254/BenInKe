@@ -9,21 +9,21 @@ const apiURL = 'http://127.0.0.1:8000/api/';
   providedIn: 'any'
 })
 export class MyStoryService {
-  allStories = apiURL + 'stories/all/';
-  onStories = apiURL + 'stories/ongoing/';
-  compStories = apiURL + 'stories/completed/';
+  allStories = apiURL + 'stories/all';
+  onStories = apiURL + 'stories/ongoing';
+  compStories = apiURL + 'stories/completed';
   storyDet = apiURL + 'story/details/';
-  allTags = apiURL + 'tags/all/';
-  allChaps = apiURL + 'chapters/all/';
+  allTags = apiURL + 'tags/all';
+  allChaps = apiURL + 'chapters/all';
   storyChaps = apiURL + 'story/chapters/';
   chapPages = apiURL + 'chapter/pages/';
   chapDet = apiURL + 'chapter/details/';
-  allReacts = apiURL + 'reactions/all/';
+  allReacts = apiURL + 'reactions/all';
   storyReacts = apiURL + 'story/reactions/';
   storyFeeds = apiURL + 'story/feedbacks/';
-  allFeeds = apiURL + 'feedbacks/all/';
-  sub = apiURL + 'newsletter/subscribers/';
-  notifs = apiURL + 'notifications/all/';
+  allFeeds = apiURL + 'feedbacks/all';
+  sub = apiURL + 'newsletter/subscribers';
+  notifs = apiURL + 'notifications/all';
   related = apiURL + 'stories/related/';
 
   myStory: string[] = [];
@@ -47,7 +47,6 @@ export class MyStoryService {
   getAllSubscribers(): Observable<any>{
     return this.handler.handleGET<any>(this.sub);
   }
-  
   getStoryDetails(id: number): Observable<any>{
     return this.handler.handleGET<any>(this.storyDet + id);
   }
