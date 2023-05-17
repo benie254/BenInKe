@@ -1,0 +1,10 @@
+#readBg{
+    min-height: 100vh;
+}
+#cover{
+    max-height:540px;
+}
+h1{
+    font-family: 'Alegreya Sans SC';
+    font-size: 36px;
+}
