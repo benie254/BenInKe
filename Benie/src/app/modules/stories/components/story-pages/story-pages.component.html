@@ -1,1 +1,201 @@
-<p>story-pages works!</p>
+<div class="container-fluid height-auto" id="readSBg">
+    <span class="sticky-top top">
+      <span>
+          <button id="back" class="small btn btn-sm btn-dark col1" (click)="back()" type="button"><i class="fa-solid fa-angles-left"></i></button>
+      </span> 
+      &nbsp;
+          <span>
+              <button id="toggle" class="small btn btn-sm btn-dark" style="color:blue;">
+                  <span>
+                      <span><i class="fa-solid fa-moon"></i></span>&nbsp;&nbsp;<span><mat-slide-toggle style="height:5px;" (click)="changeBg($event)"></mat-slide-toggle></span>&nbsp;&nbsp;<span style="color:orange;"><i class="fa-regular fa-lightbulb"></i></span>
+  
+                  </span>
+              </button>
+          </span>
+          <span class="float-right">
+              <button id="follow" class="small col1 btn btn-sm btn-dark" (click)="followBottomSheet()">
+                  <i class="fa-solid fa-user-plus"></i>
+              </button>
+              &nbsp;
+              <button id="share" class="small col1 btn btn-sm btn-dark" (click)="openBottomSheet()">
+                  <i class="fa-solid fa-share-nodes"></i>
+              </button>
+              &nbsp;
+          </span>
+  </span> 
+    <div class="row">
+      <div class="col-lg-8">
+        <div>
+          <div>
+            <div>
+              <mat-stepper class="shadow container padding-lg height-auto lg" id="sContent">
+                <mat-step state="book" labelPosition="bottom" #stepper>
+                  <ng-template matStepContent>
+                    <div *ngFor="let p of chapterPages | paginate: { id:'readPage', itemsPerPage: tableSize, currentPage: page, totalItems: count}; let i = index">
+                      <h1 class="text-center xxl" id="chaptDet">{{chapDet.title}} <br><span> <h5><span><i class="fa-solid fa-layer-group"></i> {{chaps.length}} <span *ngIf="story.category === 'flash-fiction'">part(s)</span><span *ngIf="story.category !== 'flash-fiction'">chapters</span></span> &nbsp; <i class="fa-regular fa-file"></i> {{chapterPages.length}} page(s) &nbsp;&nbsp;&nbsp; <i class="fa-regular fa-clock"></i> <span *ngIf="!readHrs && !readSecs"> {{readGen}}</span> 
+                        <span *ngIf="!readSecs && readHrs"> {{readHrs}}</span> 
+                        <span *ngIf="!readHrs && readSecs"> {{readSecs}}</span> read</h5></span></h1>
+                      <div class="myReader lg">
+                        <p style="font-family:monospace;line-height:30px;" [innerHTML]="p.description"></p>
+                      </div>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                      <pagination-controls id="readPage" previousLabel="Prev" nextLabel="Next" (pageChange)="onTableDataChange($event)"></pagination-controls>
+                    </div>
+                    <hr>
+                    <div>
+                      <button mat-stroked-button color="primary" matStepperNext> <span *ngIf="story.category !== 'flash-fiction'">Next Chapter</span><span *ngIf="story.category === 'flash-fiction'">Next Part</span></button> 
+                      <span class="float-right">
+                        <button mat-stroked-button color="primary" (click)="openBottomSheet()">
+                          <i class="fa-solid fa-share-nodes"></i> Share
+                        </button>
+                      </span> 
+                    </div>
+                  </ng-template>
+                </mat-step>
+                <mat-step state="book">
+                  <ng-template matStepLabel>
+                    <span class="col2">End</span>
+                  </ng-template>
+                  <ng-template matStepContent>
+                    <p>Enjoying this story? Drop your feedback below.</p>
+                    <app-feedback [storyComments]="storyComments" [storyId]="storyId" [likeStory]="likeStory" [storyLikes]="storyLikes" [commentStory]="commentStory"></app-feedback>
+                    <br>
+                    <div>
+                      <button mat-stroked-button matStepperPrevious><span>Prev <span *ngIf="story.category !== 'flash-fiction'">Chapter</span><span *ngIf="story.category === 'flash-fiction'">Part</span></span></button>  
+                      <span class="float-right">
+                        <button mat-stroked-button color="primary" (click)="openBottomSheet()">
+                          <i class="fa-solid fa-share-nodes"></i> Share
+                        </button>
+                      </span>
+                    </div>
+                    <br>
+                    <div *ngIf="chaps">
+                      <h2 class="text-center text-primary" *ngIf="story.category !== 'flash-fiction'">{{chaps.length}} chapters</h2>
+                      <h2 class="text-center text-primary" *ngIf="story.category === 'flash-fiction'">{{chaps.length}} part(s)</h2>
+                      <button class="padding-sm" style="margin:1.5%;" *ngFor="let c of chaps" mat-raised-button color="accent" (click)="copy(c.id);">
+                        {{c.title}}
+                      </button>
+                    </div>
+                  </ng-template>
+                </mat-step>
+                <ng-template matStepperIcon="book">
+                  <mat-icon><i class="fa-solid fa-book-open-reader"></i></mat-icon>
+                </ng-template>
+              </mat-stepper>
+            </div>
+            <br>
+            <div class="container">
+              <app-comments [storyId]="storyId" [storyComments]="storyComments" [topComments]="topComments" [likeComment]="likeComment" [commentId]="commentId"></app-comments> 
+            </div>
+          </div>
+        </div>
+        <br>
+      </div>
+      <div class="col-lg-4 ">
+        <div class="shadow padding-md">
+          <br>
+          <small>
+            <h4 class="text-primary">
+              {{story.title}} 
+              <br> 
+              <span class="col2">
+                <small class="sm">
+                  <span>
+                    <i class="fa-regular fa-star"></i> {{storyLikes.length}}
+                  </span> 
+                  &nbsp;&nbsp; 
+                  <span>
+                    <i class="fa-regular fa-comment"></i> {{storyComments.length}}
+                  </span>  
+                  &nbsp;&nbsp; 
+                  <span>
+                    <i class="fa-solid fa-layer-group"></i> {{chaps.length}}
+                  </span> 
+                  &nbsp;&nbsp;<i class="fa-regular fa-clock"></i> 
+                  <span *ngIf="!readHrs && !readSecs"> {{readGen}}</span> 
+                  <span *ngIf="!readSecs && readHrs"> {{readHrs}}</span> 
+                  <span *ngIf="!readHrs && readSecs"> {{readSecs}}</span> 
+                  &nbsp;&nbsp; 
+                  <span *ngIf="story.status == 'ongoing'">
+                    <i>
+                      <i class="fa-solid fa-spinner"></i> <a routerLink="/stories/related/status/{{story.status}}" class="col2">{{story.status}}</a> 
+                    </i>
+                  </span> 
+                  <span *ngIf="story.status == 'completed'">
+                    <i>
+                      <i class="fa-regular fa-circle-check"></i> <a routerLink="/stories/related/status/{{story.status}}" class="col2">{{story.status}}</a>
+                    </i>
+                  </span>
+                </small>
+              </span>
+            </h4>
+            <p>{{story.description}}</p>
+            <span>
+              <mat-chip-list aria-label="Categories">
+                <mat-chip color="primary" selected routerLink="/stories/related/category/{{story.category}}">{{story.category}}</mat-chip>
+              </mat-chip-list>
+            </span>
+            <br>
+            <p class="sm">
+              <span>
+                <img src="{{authorImg}}" height="35" width="35" class="border-50" alt="">
+              </span> 
+              By <a routerLink="/about" class="col2">{{story.author}}</a> 
+              &nbsp;&nbsp;|&nbsp;&nbsp; 
+              <span>First published {{story.first_published | date}}</span>
+            </p>
+          </small>
+          <hr>
+          <small>
+            <span *ngIf="storyComments">
+              <span> 
+                <span class="text-primary">Latest Comments</span> 
+                ({{topComments.length}} of <a routerLink="/stories/{{story.title}}/{{story.id}}">{{storyComments.length}}</a> ) 
+              </span>
+              <br>
+              <span>
+                <p *ngFor="let tc of topComments" class="shadow sm margin-md padding-md">
+                  <span class="smaller col2">
+                    {{tc.date | dateAgo}} 
+                    &nbsp;&nbsp; | &nbsp;&nbsp; <i class="fa-regular fa-circle-user"></i> 
+                    <span *ngIf="tc.commented_by">&nbsp;{{tc.commented_by}}</span>
+                    <span *ngIf="!tc.commented_by">&nbsp;Anonymous</span> 
+                  </span> 
+                  <br> 
+                  <span *ngIf="tc.comment">{{tc.comment}}</span>
+                  <span *ngIf="!tc.comment">Beautiful story!</span> 
+                </p>
+              </span>
+            </span>
+            <span *ngIf="!storyComments">
+              <span> Comments</span><br>
+              <span>
+                <p class="shadow smaller margin-md padding-md">
+                  <span class="xxsm">
+                    01/01/2023 &nbsp;&nbsp; | &nbsp;&nbsp; 
+                    <i class="fa-regular fa-circle-user"></i> Anonymous
+                  </span> 
+                  <br> 
+                  Latest comments will appear here.
+                </p>
+              </span>
+            </span>
+          </small>
+          <hr>
+          <img src="{{story.cover}}" class="max-height max-width" alt="" priority>
+          <br><br>
+          <span>
+            <div class="row">
+              <div class="col-lg-12">
+                <app-feedback [storyComments]="storyComments" [storyId]="storyId" [likeStory]="likeStory" [storyLikes]="storyLikes" [commentStory]="commentStory"></app-feedback>
+              </div>
+            </div>
+          </span>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+  </div>
+  
