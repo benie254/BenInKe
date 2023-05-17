@@ -9,16 +9,16 @@ const api = 'http://127.0.0.1:8000/api/';
   providedIn: 'any'
 })
 export class PoetryService {
-  allPoems = api + 'poems/all/';
+  allPoems = api + 'poems/all';
   poemDet = api + 'poem/details/';
   pastPoems = api + 'poems/past/';
-  pinned = api + 'poem/pinned/';
+  pinned = api + 'poem/pinned';
   related = api + 'poems/related/';
-  like = api + 'reactions/all/';
-  comment = api + 'feedbacks/all/';
+  like = api + 'reactions/all';
+  comment = api + 'feedbacks/all';
   reacts = api + 'poem/reactions/';
   feeds = api + 'poem/feedbacks/';
-  replies = api + 'replies/all/';
+  replies = api + 'replies/all';
   comLike = api + 'feedback/likes/';
   comReply = api + 'feedback/replies/';
 
