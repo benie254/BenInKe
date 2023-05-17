@@ -41,6 +41,7 @@ import { AllSubscribersComponent } from './components/subscribers/all-subscriber
 import { AllTagsComponent } from './components/tags/all-tags/all-tags.component';
 import { AddTagComponent } from './components/tags/add-tag/add-tag.component';
 import { EditTagComponent } from './components/tags/edit-tag/edit-tag.component';
+import { ErrorsComponent } from './errors/errors.component';
 
 @NgModule({
   declarations: [
@@ -83,6 +84,7 @@ import { EditTagComponent } from './components/tags/edit-tag/edit-tag.component'
     AllTagsComponent,
     AddTagComponent,
     EditTagComponent,
+    ErrorsComponent,
   ],
   imports: [
     CommonModule,

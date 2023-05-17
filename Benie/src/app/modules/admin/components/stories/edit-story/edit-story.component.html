@@ -1,1 +1,105 @@
-<p>edit-story works!</p>
+<div class="container">
+    <div class="padding-2">
+        <div class="row">
+          <div class="col-md-6">
+            <form #storyForm="ngForm" class="bg-light rounded padding-2" (ngSubmit)="editItem(storyForm.value)" id="storyForm">
+              <h2>Edit {{details.title}} Details <span class="text-success"><i class="fa-solid fa-hashtag"></i> {{details.id}}</span></h2>  
+              <mat-form-field class="w-75" appearance="fill">
+                <mat-label>Author </mat-label>
+                  <textarea matInput type="text" [(ngModel)]="details.author" name="author" #author="ngModel" ngModel required></textarea>
+                  <mat-error *ngIf="author.hasError('required') || author.pristine">
+                    Author is <strong>required</strong>
+                  </mat-error>
+              </mat-form-field>
+              <mat-form-field class="w-75" appearance="fill">
+                <mat-label>Genre </mat-label>
+                
+                <input matInput name="genre" ngModel #genre="ngModel" [(ngModel)]="details.genre" type="text" required>
+                <mat-error *ngIf="genre.hasError('required') || genre.pristine">
+                    Genre is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+              <br>
+              <mat-form-field class="w-75" appearance="fill">
+                <mat-label>Category</mat-label>
+                
+                <input matInput name="category" ngModel #category="ngModel" [(ngModel)]="details.category" type="text" required>
+
+                <mat-error *ngIf="category.hasError('required') || category.pristine">
+                    Category is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+              <br>
+              <mat-form-field class="w-75" appearance="fill">
+                <mat-label>Status</mat-label>
+                
+                <input matInput name="status" [(ngModel)]="details.status" ngModel #status="ngModel" required>
+                <mat-error *ngIf="status.hasError('required') || status.pristine">
+                    Status is <strong>required</strong>
+                </mat-error>
+              </mat-form-field><br>
+              <mat-form-field class="w-75" appearance="fill">
+                <mat-label>Pin</mat-label>
+                
+                <input matInput name="pin" [(ngModel)]="details.pin" ngModel #pin="ngModel" required>
+                <mat-error *ngIf="pin.hasError('required') || pin.pristine">
+                    Pin is <strong>required</strong>
+                </mat-error>
+              </mat-form-field><br>
+              <mat-form-field class="w-75" appearance="fill">
+                <mat-label>Title </mat-label>
+                  <input matInput type="text" name="title" #title="ngModel" [(ngModel)]="details.title" ngModel required>
+                  <mat-error *ngIf="title.hasError('required') || title.pristine">
+                    Title is <strong>required</strong>
+                  </mat-error>
+              </mat-form-field>
+              <br>
+                <mat-form-field appearance="fill">
+                  <mat-label for="cover">Cover: </mat-label><br>
+                
+                  <input matInput type="url" name="cover" #cover="ngModel" [(ngModel)]="details.cover" ngModel>
+                  <mat-error *ngIf="cover.hasError('required') || cover.pristine">
+                    Cover is <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
+              <br>
+              <mat-form-field appearance="fill">
+                <mat-label for="cover">Author pic: </mat-label><br>
+              
+                <input matInput type="url" name="author_pic" #author_pic="ngModel" [(ngModel)]="details.author_pic" ngModel>
+                <mat-error *ngIf="author_pic.hasError('required') || author_pic.pristine">
+                  Author pic is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+            <br>
+            
+            <mat-form-field class="w-75" appearance="fill">
+                <mat-label>Description </mat-label>
+                  <textarea matInput type="text" name="description" #description="ngModel" [(ngModel)]="details.description" ngModel required></textarea>
+                  <mat-error *ngIf="description.hasError('required') || description.pristine">
+                    Description is <strong>required</strong>
+                  </mat-error>
+              </mat-form-field> 
+
+              <mat-form-field class="w-75" appearance="fill">
+                <mat-label>First published </mat-label>
+                  <textarea matInput type="date" name="first_published" #first_published="ngModel" [(ngModel)]="details.first_published" ngModel required></textarea>
+                  <mat-error *ngIf="first_published.hasError('required') || first_published.pristine">
+                    This field is <strong>required</strong>
+                  </mat-error>
+              </mat-form-field>
+
+             
+
+
+              
+                  <div class="form-group bg-light">
+                    <button type="submit" style="margin-top:1%;" mat-raised-button color="accent" [disabled]="storyForm.invalid" (click)="reload()"> Save</button> &nbsp;&nbsp;<button style="margin-top:1%;" type="submit" mat-flat-button color="accent" [disabled]="storyForm.invalid">Save and continue editing</button> &nbsp;&nbsp; <button style="margin-top:1%;" type="submit" mat-flat-button color="accent"  [disabled]="storyForm.invalid" (click)="redirect()">Save and add another</button> <button style="margin-top:1%;" class="float-right" type="button" mat-flat-button color="warn"  (click)="delWarn()">Delete</button>
+                  </div>
+                  
+            </form>
+          </div>
+          <div class="col-md-6"></div>
+        </div>
+    </div>
+</div>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import * as Notiflix from 'notiflix';
+import { StoryService } from '../../../services/story/story.service';
 
 @Component({
   selector: 'app-add-subscriber',
@@ -7,9 +9,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddSubscriberComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(
+    private storyService:StoryService,
+  ) { }
+ 
   ngOnInit(): void {
   }
-
+  addItem(data: any){
+    this.storyService.addSub(data).subscribe({
+      next: (res) => {
+        Notiflix.Notify.success('Added!');
+      }
+    });
+  }
+  reset(){
+    const form = (<HTMLFormElement>document.getElementById('subForm'));
+    setTimeout(() => {
+      form.reset();
+    }, 250)
+  }
+  reload(){
+    setTimeout(() => {
+      location.reload();
+    }, 250)
+  }
 }
