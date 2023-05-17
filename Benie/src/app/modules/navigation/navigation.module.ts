@@ -3,11 +3,15 @@ import { CommonModule } from '@angular/common';
 
 import { NavigationRoutingModule } from './navigation-routing.module';
 import { NavigationComponent } from './navigation.component';
+import { FooterComponent } from './footer/footer.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 @NgModule({
   declarations: [
-    NavigationComponent
+    NavigationComponent,
+    FooterComponent,
+    NavbarComponent
   ],
   imports: [
     CommonModule,
