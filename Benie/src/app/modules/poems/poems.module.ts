@@ -26,7 +26,6 @@ import { StoriesModule } from '../stories/stories.module';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FeedbackBottomSheet, FollowBottomSheet } from './components/feedback/feedback.component';
 import { RepliesBottomSheet } from './components/comments/comments.component';
 import { MatListModule } from '@angular/material/list';
@@ -67,7 +66,6 @@ import { NgxPaginationModule } from 'ngx-pagination';
     MatDividerModule,
     MatIconModule,
     MatInputModule,
-    Ng2SearchPipeModule,
     MatListModule,
     MatTreeModule,
     ContactModule,

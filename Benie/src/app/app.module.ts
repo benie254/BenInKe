@@ -23,17 +23,19 @@ import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { StoriesModule } from './modules/stories/stories.module';
 import { NavigationModule } from './modules/navigation/navigation.module';
 import { ContactModule } from './modules/contact/contact.module';
+import { NgxEditorModule } from 'ngx-editor';
+import { CustomFilterPipe } from './pipes/filter/custom-filter-pipe.pipe'; 
 
 @NgModule({
   declarations: [
     AppComponent,
     AboutComponent,
     HomeComponent,
-    UnsubscribeComponent
+    UnsubscribeComponent,
+    CustomFilterPipe
   ],
   imports: [
     BrowserModule,
@@ -56,7 +58,6 @@ import { ContactModule } from './modules/contact/contact.module';
     ReactiveFormsModule,
     MatBadgeModule,
     MatExpansionModule,
-    Ng2SearchPipeModule,
     NgxEditorModule,
     MatChipsModule,
     StoriesModule,

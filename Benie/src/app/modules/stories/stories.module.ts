@@ -34,11 +34,11 @@ import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgxEditorModule } from 'ngx-editor';
 import { ContactModule } from '../contact/contact.module';
 import { FollowAlt2BottomSheet, ShareBottomSheet } from './components/feedback/feedback.component';
 import { RepliesBottomSheet } from './components/comments/comments.component';
+import { CustomFilterPipe } from './pipes/filter/custom-filter-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -64,6 +64,11 @@ import { RepliesBottomSheet } from './components/comments/comments.component';
     FollowAlt2BottomSheet,
     ShareBottomSheet,
     RepliesBottomSheet,
+    CustomFilterPipe,
+  ],
+  imports: [
+    CommonModule,
+    StoriesRoutingModule,
     HttpClientModule,
     FormsModule,
     MatButtonModule,
@@ -81,14 +86,9 @@ import { RepliesBottomSheet } from './components/comments/comments.component';
     ReactiveFormsModule,
     MatBadgeModule,
     MatExpansionModule,
-    Ng2SearchPipeModule,
     NgxEditorModule,
     MatListModule,
     ContactModule,
-  ],
-  imports: [
-    CommonModule,
-    StoriesRoutingModule
   ],
   exports: [
     TruncatePipe,

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
-import { Cloudinary, CloudinaryImage } from '@cloudinary/url-gen';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +8,6 @@ import { Cloudinary, CloudinaryImage } from '@cloudinary/url-gen';
 })
 export class AppComponent {
   title = 'Benie Writes';
-  img!: CloudinaryImage;
 
   constructor(
     private meta: Meta,
