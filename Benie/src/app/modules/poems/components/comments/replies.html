@@ -1,0 +1,63 @@
+<div class="container-fluid" id="replies">
+    <p *ngIf="det" class="sm margin-lg padding-lg">
+        <span class="smaller col2">
+            <span>
+                {{det.date | dateAgo}} &nbsp;&nbsp; | &nbsp;&nbsp; <i class="fa-regular fa-circle-user"></i> 
+                <span *ngIf="det.commented_by">&nbsp;{{det.commented_by}}</span>
+                <span *ngIf="!det.commented_by">&nbsp;Anonymous</span> 
+            </span>
+        </span> 
+        <br>
+        <span *ngIf="det.comment">{{det.comment}}</span>
+        <span *ngIf="!det.comment">Beautiful piece!</span>
+        <br><br>
+        <span>
+            <div class="row">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-11">
+                    <span *ngIf="this.cReplies">
+                        <span *ngFor="let cr of this.cReplies">
+                            <p>
+                                <span>
+                                    <span class="divide xsm">
+                                        {{cr.date | dateAgo}} &nbsp;&nbsp; | &nbsp;&nbsp; 
+                                        <span><i class="fa-regular fa-circle-user"></i></span>  
+                                        <span *ngIf="cr.replied_by">&nbsp;{{cr.replied_by}}</span>
+                                        <span *ngIf="!cr.replied_by">&nbsp;Anonymous</span>
+                                    </span> 
+                                    <br> 
+                                    <span *ngIf="cr.msg">{{cr.msg}}</span>
+                                    <span *ngIf="!cr.msg">Beautiful piece!</span>
+                                </span>
+                            </p>
+                        </span>
+                    </span>
+                </div>
+            </div>
+        </span>
+        <br>
+        <span>
+            <form #replyForm="ngForm" (ngSubmit)="replyComment(replyForm.value)">
+                <mat-form-field appearance="fill">
+                    <mat-label class="bg-light" color="primary">Reply</mat-label>
+                    <textarea class="textarea" type="text" matInput ngModel name="msg"></textarea>
+                </mat-form-field>
+                <mat-form-field style="display:none;">
+                    <input matInput type="number" name="comment" ngModel [(ngModel)]="det.id">
+                </mat-form-field>
+                <div>
+                    <mat-form-field>
+                        <mat-label class="bg-light" color="primary">Name</mat-label>
+                        <input name="replied_by" matInput ngModel type="text">
+                    </mat-form-field>
+                    <input matInput type="number" style="display:none;" name="story" ngModel [(ngModel)]="storyId">
+                    <input matInput type="text" style="display:none;" name="poem" ngModel [(ngModel)]="poemId">
+                </div>
+                &nbsp;
+                <button mat-raised-button color="primary" type="submit" (click)="copyComment(det.id)">
+                    Add <i class="fa-regular fa-comment"></i>
+                </button>
+            </form>
+        </span>
+    </p>
+</div>
