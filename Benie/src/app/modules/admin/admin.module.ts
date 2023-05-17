@@ -10,8 +10,7 @@ import { ResetConfirmedComponent } from './auth/components/reset-confirmed/reset
 import { ChangePassFormComponent } from './auth/forms/change-pass-form/change-pass-form.component';
 import { LoginFormComponent } from './auth/forms/login-form/login-form.component';
 import { ResetConfirmedFormComponent } from './auth/forms/reset-confirmed-form/reset-confirmed-form.component';
-import { ResetPassFormComponent } from './auth/forms/reset-pass-form/reset-pass-form.component';
-import { AddChapterComponent } from './components/chapters/add-chapter/add-chapter.component';
+import { AddChapterComponent, DialogForm } from './components/chapters/add-chapter/add-chapter.component';
 import { AllChaptersComponent } from './components/chapters/all-chapters/all-chapters.component';
 import { EditChapterComponent } from './components/chapters/edit-chapter/edit-chapter.component';
 import { AllContactsComponent } from './components/contacts/all-contacts/all-contacts.component';
@@ -24,7 +23,7 @@ import { AllNotificationsComponent } from './components/notifications/all-notifi
 import { AddNotificationComponent } from './components/notifications/add-notification/add-notification.component';
 import { EditNotificationComponent } from './components/notifications/edit-notification/edit-notification.component';
 import { EditPageComponent } from './components/pages/edit-page/edit-page.component';
-import { AddPageComponent } from './components/pages/add-page/add-page.component';
+import { AddPageComponent, PageDialogForm } from './components/pages/add-page/add-page.component';
 import { AllPagesComponent } from './components/pages/all-pages/all-pages.component';
 import { AllPoemsComponent } from './components/poems/all-poems/all-poems.component';
 import { AddPoemComponent } from './components/poems/add-poem/add-poem.component';
@@ -42,6 +41,7 @@ import { AllTagsComponent } from './components/tags/all-tags/all-tags.component'
 import { AddTagComponent } from './components/tags/add-tag/add-tag.component';
 import { EditTagComponent } from './components/tags/edit-tag/edit-tag.component';
 import { ErrorsComponent } from './errors/errors.component';
+import { ResetRequestFormComponent } from './auth/forms/reset-request-form/reset-request-form.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +53,6 @@ import { ErrorsComponent } from './errors/errors.component';
     ChangePassFormComponent,
     LoginFormComponent,
     ResetConfirmedFormComponent,
-    ResetPassFormComponent,
     AddChapterComponent,
     AllChaptersComponent,
     EditChapterComponent,
@@ -85,6 +84,9 @@ import { ErrorsComponent } from './errors/errors.component';
     AddTagComponent,
     EditTagComponent,
     ErrorsComponent,
+    DialogForm,
+    PageDialogForm,
+    ResetRequestFormComponent,
   ],
   imports: [
     CommonModule,
