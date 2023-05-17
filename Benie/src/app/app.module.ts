@@ -63,7 +63,12 @@ import { ContactModule } from './modules/contact/contact.module';
     NavigationModule,
     ContactModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: STEPPER_GLOBAL_OPTIONS,
+      useValue: { displayDefaultIndicatorType: false }
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
