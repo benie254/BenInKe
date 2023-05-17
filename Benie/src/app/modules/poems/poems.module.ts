@@ -15,6 +15,24 @@ import { RelatedComponent } from './components/related/related.component';
 import { ResultsComponent } from './components/results/results.component';
 import { SearchComponent } from './components/search/search.component';
 
+import {MatCardModule} from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { BottomSheetOverviewExampleSheet, FollowerBottomSheet } from './components/read/read.component';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+import { StoriesModule } from '../stories/stories.module';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { FeedbackBottomSheet, FollowBottomSheet } from './components/feedback/feedback.component';
+import { RepliesBottomSheet } from './components/comments/comments.component';
+import { MatListModule } from '@angular/material/list';
+import {MatTreeModule} from '@angular/material/tree';
+import { ContactModule } from '../contact/contact.module';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -29,11 +47,31 @@ import { SearchComponent } from './components/search/search.component';
     RecentComponent,
     RelatedComponent,
     ResultsComponent,
-    SearchComponent
+    SearchComponent,
+    BottomSheetOverviewExampleSheet,
+    FeedbackBottomSheet,
+    FollowBottomSheet,
+    FollowerBottomSheet,
+    RepliesBottomSheet,
   ],
   imports: [
     CommonModule,
-    PoemsRoutingModule
+    PoemsRoutingModule,
+    FormsModule,
+    MatCardModule,
+    MatButtonModule,
+    MatSlideToggleModule,
+    MatExpansionModule,
+    MatFormFieldModule,
+    StoriesModule,
+    MatDividerModule,
+    MatIconModule,
+    MatInputModule,
+    Ng2SearchPipeModule,
+    MatListModule,
+    MatTreeModule,
+    ContactModule,
+    NgxPaginationModule,
   ]
 })
 export class PoemsModule { }
