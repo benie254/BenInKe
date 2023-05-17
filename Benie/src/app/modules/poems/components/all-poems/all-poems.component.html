@@ -1,0 +1,28 @@
+
+<app-nav [poems]="poems"></app-nav>
+<div class="container">
+    <div class="row padding-lg">
+        <h1 class="text-center">All <span class="text-primary">{{poems.length}}</span> Poems</h1>
+        <div class="col-lg-6 padding-xl" *ngFor="let p of poems | paginate: { id:'allPoemsPage', itemsPerPage: tableSize, currentPage: page, totalItems: count}; let i = index">
+            <small class="divide col2">published 
+                &nbsp;
+                <a routerLink="/poems/related/date/{{p.uploaded | date: 'YYYY-MM-dd'}}" class="col2">{{p.uploaded | date}}</a> 
+                &nbsp;&nbsp; in &nbsp;
+                <a routerLink="/poems/related/category/{{p.category}}" class="col2">{{p.category}}</a>
+            </small>
+            <a routerLink="/poems/{{p.category}}/{{p.title}}/read/{{p.id}}"><img src="{{p.cover}}" id="cover" alt=""></a>
+            <h1 class="text-primary">
+                <a routerLink="/poems/{{p.category}}/{{p.title}}/read/{{p.id}}">{{p.title}}</a>
+            </h1>
+            <p>{{p.excerpt}}</p>
+        </div>
+        <div class="d-flex justify-content-center" *ngIf="poems">
+            <pagination-controls id="allPoemsPage" previousLabel="Prev" nextLabel="Next" (pageChange)="onTableDataChange($event)"></pagination-controls>
+          </div>
+    </div>
+    <br><br>
+</div>
+<div class="content padding-lg">
+    <app-search></app-search>
+</div>
+<app-poem-footer></app-poem-footer>
