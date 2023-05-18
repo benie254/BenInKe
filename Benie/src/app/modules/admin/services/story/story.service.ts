@@ -31,6 +31,7 @@ export class StoryService {
   sub = apiURL + 'newsletter/subscribers';
   subDet = adminURL + 'subscriber/details/';
   contact = adminURL + 'contacts/all';
+  addCont = apiURL + 'contacts/add';
   contactDet = adminURL + 'contact/details/';
 
   constructor(
@@ -41,7 +42,7 @@ export class StoryService {
     return this.handler.handleGET<any>(this.contact);
   }
   addContact(data: any): Observable<any>{
-    return this.handler.handlePOST<any>(this.contact, data);
+    return this.handler.handlePOST<any>(this.addCont, data);
   }
   getContactDetails(id: any): Observable<any>{
     return this.handler.handleGET<any>(this.contactDet + id);
