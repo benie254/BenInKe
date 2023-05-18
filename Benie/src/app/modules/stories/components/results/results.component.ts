@@ -11,6 +11,8 @@ import { MyStoryService } from 'src/app/services/story/my-story.service';
 export class ResultsComponent implements OnInit {
   related: any;
   title: any;
+  searchTitle: any;
+  shortStory: any;
   searchResults: any;
   exploreImg = 'https://res.cloudinary.com/benie/image/upload/v1669956626/undraw_questions_re_1fy7_w2hzi7.svg';
   id: any;
@@ -28,6 +30,7 @@ export class ResultsComponent implements OnInit {
     this.route.params.subscribe(
       params => {
         this.relatedStories(params["id"])
+        this.searchTitle = params["id"]
       }
     )
     this.allStories();

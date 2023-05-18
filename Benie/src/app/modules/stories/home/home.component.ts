@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
   searchResults: any;
   searchText: any;
   title: any;
+  latestNotifs: any;
   
 
   constructor(
@@ -43,6 +44,16 @@ export class HomeComponent implements OnInit {
       this.notifs = '';
       sessionStorage.removeItem('washere')
     }
+  }
+  getNotifications(){
+    Notiflix.Loading.pulse('fetching...')
+    this.service.getAllNotifications().subscribe({
+      next: (res) => {
+        Notiflix.Loading.remove();
+        this.notifs = res;
+        this.latestNotifs = this.notifs.slice(0,2)
+      }
+    })
   }
 
 }

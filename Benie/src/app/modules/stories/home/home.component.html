@@ -13,12 +13,12 @@
     <mat-tab>
         <ng-template matTabLabel>
            <span class="position-relative">
-            Notifications &nbsp;&nbsp; <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
+            Notifications &nbsp;&nbsp; <span *ngIf="latestNotifs" class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
             <span class="visually-hidden">New alerts</span>
           </span>
            </span>
         </ng-template>
-        <app-notifications></app-notifications>
+        <app-notifications [latestNotifs]="latestNotifs"></app-notifications>
     </mat-tab>
 </mat-tab-group>
 <br><br>

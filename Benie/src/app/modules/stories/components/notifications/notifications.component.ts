@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import * as Notiflix from 'notiflix';
 import { MyStoryService } from 'src/app/services/story/my-story.service';
 
@@ -8,8 +8,8 @@ import { MyStoryService } from 'src/app/services/story/my-story.service';
   styleUrls: ['./notifications.component.css']
 })
 export class NotificationsComponent implements OnInit {
+  @Input() latestNotifs: any;
   notifs: any;
-  latestNotifs: any;
   panelOpenState = false;
   today = new Date();
   authorImg = 'https://res.cloudinary.com/benie/image/upload/v1667972682/h02js8etvetdr5ctbmtf.jpg';
@@ -19,16 +19,5 @@ export class NotificationsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getNotifications();
-  }
-  getNotifications(){
-    Notiflix.Loading.pulse('fetching...')
-    this.service.getAllNotifications().subscribe({
-      next: (res) => {
-        Notiflix.Loading.remove();
-        this.notifs = res;
-        this.latestNotifs = this.notifs.slice(0,2)
-      }
-    })
   }
 }
