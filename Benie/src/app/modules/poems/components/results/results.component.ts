@@ -9,6 +9,7 @@ import { PoetryService } from '../../services/poetry.service';
   styleUrls: ['./results.component.css']
 })
 export class ResultsComponent implements OnInit {
+  poemsByDate: any;
   poems: any;
   categ = '';
   nothingImg = 'https://res.cloudinary.com/benie/image/upload/v1669956626/undraw_questions_re_1fy7_w2hzi7.svg';
@@ -27,20 +28,21 @@ export class ResultsComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(
       params => {
-        this.relatedPoems(params['id']),
-        this.searchByDate(params['id'])
+        this.searchByDate(params['id']),
+        this.relatedPoems(params['id'])
       }
     )
     this.bg();
   }
   relatedPoems(id: string){
-    Notiflix.Loading.pulse('Retrieving...');
+    Notiflix.Loading.pulse('R...');
     this.poetryService.getRelatedPoems(id).subscribe({
       next: (res) => {
         Notiflix.Loading.remove();
         this.poems = res;
         this.categ = id;
         this.bg();
+        this.onTableDataChange(this.page)
       }
     })
   }
@@ -53,7 +55,7 @@ export class ResultsComponent implements OnInit {
     this.poetryService.searchByDate(date).subscribe({
       next: (res) => {
         Notiflix.Loading.remove();
-        this.poems = res;
+        this.poemsByDate = res;
         this.onTableDataChange(this.page)
       }
     })

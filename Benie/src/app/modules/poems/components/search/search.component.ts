@@ -48,8 +48,8 @@ export class SearchComponent implements OnInit {
     Notiflix.Loading.pulse('Fetching...')
     this.poetryService.getAllPoems().subscribe({
       next: (data) => {
-        this.poems = data;
         Notiflix.Loading.remove();
+        this.poems = data;
         this.searchResults = data;
       }
     })
