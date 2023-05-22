@@ -43,6 +43,7 @@ export class SearchComponent implements OnInit {
     this.pInput = false;
     let search = (<HTMLFormElement>document.getElementById('searchForm'));
     search.reset();
+    this.foundPoems = '';
   }
   allPoems(){
     Notiflix.Loading.pulse('Fetching...')
@@ -79,7 +80,6 @@ export class SearchComponent implements OnInit {
   getByDate(poemDate: any): void{
     this.poetryService.searchByDate(poemDate).subscribe( data => {
         this.foundPoems = data;
-        console.warn(data)
         if (this.foundPoems == undefined || this.foundPoems && this.foundPoems.length == 0){
           this.noPoem = true;
         } else {
@@ -92,7 +92,7 @@ export class SearchComponent implements OnInit {
       function(){
         this.isLoading= false;
         this.fetchPoemSuccess = true;
-        if(this.fetchPoemSuccess = true && this.foundPoems.length == 0){
+        if(this.fetchPoemSuccess = true && this.foundPoems.length === 0){
           this.empty = true;
         } else {
           this.empty = false;

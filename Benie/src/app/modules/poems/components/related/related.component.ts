@@ -31,7 +31,7 @@ export class RelatedComponent implements OnInit {
     this.poemC = localStorage.getItem("poemCateg");
   }
   refresh(){
-    this.router.navigate(['/poems/' + this.poemC + '/' + this.poemT + '/' + 'read' + this.poemId])
+    this.router.navigate(['/poems/' + this.poemC + '/' + this.poemT + '/' + 'read/' + this.poemId])
     setTimeout(() => {
       location.reload();
       localStorage.removeItem("poemId");

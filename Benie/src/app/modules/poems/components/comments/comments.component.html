@@ -2,9 +2,9 @@
     <div class="row padding-lg">
         <span class="text-center">
             <h1>
-                <span class="text-primary">{{topComments.length}}</span> 
+                <small class="text-primary xxl">{{topComments.length}}</small> 
                 of 
-                <span class="col1">{{comments.length}}</span> Comments
+                <small class="col1 xxl">{{comments.length}}</small> Comments
             </h1>
         </span>
         <div class="col-lg-6" *ngFor="let tc of topComments; trackBy: trackByFn" >

@@ -32,6 +32,7 @@ import { MatListModule } from '@angular/material/list';
 import {MatTreeModule} from '@angular/material/tree';
 import { ContactModule } from '../contact/contact.module';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { CustomFilterPipe } from './pipes/filter/custom-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     FollowBottomSheet,
     FollowerBottomSheet,
     RepliesBottomSheet,
+    CustomFilterPipe,
   ],
   imports: [
     CommonModule,

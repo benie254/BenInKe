@@ -33,13 +33,13 @@
             <div class="container padding">
                 <div *ngIf="foundPoems">
                     <div>
-                        <div *ngIf="!empty && !noPoem && pInput">
+                        <div *ngIf="!empty || !noPoem && pInput">
                             <div class="card-body">
                                 <h2 class="card-title text-center"> 
                                     <i class="fa-regular fa-file-lines"></i> We found the following poems...
                                 </h2>
                                 <div class="row">
-                                    <div class="col-lg-6" *ngFor="let p of foundPoems | filter: searchText | paginate: { id:'searchToolPage', itemsPerPage: tableSize, currentPage: page, totalItems: count}; let i = index">
+                                    <div class="col-lg-6" *ngFor="let p of foundPoems | paginate: { id:'searchToolPage', itemsPerPage: tableSize, currentPage: page, totalItems: count}; let i = index">
                                         <div class="mb-3">
                                             <div class="text-center divide">
                                                 <span class="col2 xsm">
@@ -49,13 +49,13 @@
                                                 </span>
                                             </div>
                                             <div class="text-center" >
-                                                <h2 class="card-title text-center poemTitle"> 
+                                                <h4 class="card-title text-center poemTitle"> 
                                                     <a routerLink="/poems/{{p.category}}/{{p.title}}/read/{{p.id}}">
                                                         <img class="img-fluid card-img-top rounded-start shadow pic" src="{{p.cover}}"  alt="" priority> 
                                                         {{p.title}}
                                                     </a> 
-                                                </h2>
-                                                <p class="card-text"> {{p.excerpt | truncate:[350, '...']}}</p>
+                                                </h4>
+                                                <p class="card-text"> {{p.excerpt | truncate:[100, '...']}}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -87,6 +87,7 @@
                 <br>
             </form>
             <div *ngIf="sInput">
+        
                 <div>
                     <div class="row">
                         <h2 class="text-center">
@@ -102,13 +103,13 @@
                                     </span>
                                 </div>
                                 <div class="text-center" >
-                                    <h2 class="card-title text-center poemTitle"> 
+                                    <h4 class="card-title text-center poemTitle"> 
                                         <a routerLink="/poems/{{p.category}}/{{p.title}}/read/{{p.id}}">
                                             <img class="img-fluid card-img-top rounded-start shadow pic" src="{{p.cover}}"  alt="" priority> 
                                             {{p.title}}
                                         </a> 
-                                    </h2>
-                                    <p class="card-text"> {{p.excerpt | truncate:[350, '...']}}</p>
+                                    </h4>
+                                    <p class="card-text"> {{p.excerpt | truncate:[100, '...']}}</p>
                                 </div>
                             </div>
                         </div>
