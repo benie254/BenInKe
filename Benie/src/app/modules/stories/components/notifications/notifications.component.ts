@@ -9,7 +9,7 @@ import { MyStoryService } from 'src/app/services/story/my-story.service';
 })
 export class NotificationsComponent implements OnInit {
   @Input() latestNotifs: any;
-  notifs: any;
+  @Input() notifs: any;
   panelOpenState = false;
   today = new Date();
   authorImg = 'https://res.cloudinary.com/benie/image/upload/v1667972682/h02js8etvetdr5ctbmtf.jpg';

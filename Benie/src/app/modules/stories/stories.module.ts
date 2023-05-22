@@ -19,7 +19,6 @@ import { DateAgoPipe } from './pipes/date/date-ago.pipe';
 import { TruncatePipe } from './pipes/trunc/truncate.pipe';
 import { BottomSheetOverviewExampleSheet, FollowBottomSheet } from './components/read/read.component';
 import { FollowAltBottomSheet, StoryDialog } from './components/story-pages/story-pages.component';
-import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -69,7 +68,6 @@ import { CustomFilterPipe } from './pipes/filter/custom-filter-pipe.pipe';
   imports: [
     CommonModule,
     StoriesRoutingModule,
-    HttpClientModule,
     FormsModule,
     MatButtonModule,
     MatTabsModule,

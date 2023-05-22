@@ -20,8 +20,8 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // this.checkViews();
     this.allStories();
+    this.getNotifications();
   }
   allStories(){
     Notiflix.Loading.pulse('Retrieving...')
@@ -35,25 +35,26 @@ export class HomeComponent implements OnInit {
   titleValue = (text: any): void => {
     this.title = text;
   }
-  checkViews(){
-    let hasVisited = sessionStorage.getItem('washere');
-    if ( ! hasVisited ) {
-    Notiflix.Notify.success('Welcome to Benie Writes!');
-    sessionStorage.setItem('washere', true.toString());
-    } else {
-      this.notifs = '';
-      sessionStorage.removeItem('washere')
-    }
-  }
   getNotifications(){
     Notiflix.Loading.pulse('fetching...')
     this.service.getAllNotifications().subscribe({
       next: (res) => {
         Notiflix.Loading.remove();
         this.notifs = res;
-        this.latestNotifs = this.notifs.slice(0,2)
+        this.latestNotifs = this.notifs.slice(0,2);
+        this.checkViews();
       }
     })
+  }
+  checkViews(){
+    let hasVisited = sessionStorage.getItem('washere');
+    if ( ! hasVisited ) {
+    Notiflix.Notify.success('Welcome to Benie Writes!');
+    sessionStorage.setItem('washere', true.toString());
+    } else {
+      this.latestNotifs = '';
+      sessionStorage.removeItem('washere')
+    }
   }
 
 }

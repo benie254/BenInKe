@@ -28,8 +28,8 @@ export class LoginFormComponent implements OnInit {
 
   ngOnInit(): void {
     if(this.authService.currentUserValue){
-      this.authenticated = false; 
-      this.router.navigate(['/admin/home/' + this.authService.currentUserValue.username])
+      this.authenticated = true; 
+      this.router.navigate(['/admin/home'])
     } else {
       this.authenticated = false; 
       this.authService.logout();

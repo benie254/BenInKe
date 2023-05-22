@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AboutComponent } from './components/about/about.component';
 import { HomeComponent } from './components/home/home.component';
 import { UnsubscribeComponent } from './components/unsubscribe/unsubscribe.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -28,6 +28,7 @@ import { NavigationModule } from './modules/navigation/navigation.module';
 import { ContactModule } from './modules/contact/contact.module';
 import { NgxEditorModule } from 'ngx-editor';
 import { CustomFilterPipe } from './pipes/filter/custom-filter-pipe.pipe'; 
+import { ReqInterceptor } from './helpers/interceptor/req.interceptor';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { CustomFilterPipe } from './pipes/filter/custom-filter-pipe.pipe';
     {
       provide: STEPPER_GLOBAL_OPTIONS,
       useValue: { displayDefaultIndicatorType: false }
-    }
+    },
+    { provide: HTTP_INTERCEPTORS, useClass: ReqInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

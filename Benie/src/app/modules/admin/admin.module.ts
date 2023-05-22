@@ -42,7 +42,6 @@ import { AddTagComponent } from './components/tags/add-tag/add-tag.component';
 import { EditTagComponent } from './components/tags/edit-tag/edit-tag.component';
 import { ErrorsComponent } from './errors/errors.component';
 import { ResetRequestFormComponent } from './auth/forms/reset-request-form/reset-request-form.component';
-import { HttpClientModule } from '@angular/common/http';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -106,7 +105,6 @@ import { NavigationModule } from '../navigation/navigation.module';
   imports: [
     CommonModule,
     AdminRoutingModule,
-    HttpClientModule,
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
