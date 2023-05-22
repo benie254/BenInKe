@@ -2,7 +2,7 @@
 <app-nav [poems]="poems"></app-nav>
 <div class="container">
     <div class="row padding-lg">
-        <h1 class="text-center">All <span class="text-primary">{{poems.length}}</span> Poems</h1>
+        <h1 class="text-center">All <small class="text-primary xxl">{{poems.length}}</small> Poems</h1>
         <div class="col-lg-6 padding-xl" *ngFor="let p of poems | paginate: { id:'allPoemsPage', itemsPerPage: tableSize, currentPage: page, totalItems: count}; let i = index">
             <small class="divide col2">published 
                 &nbsp;
