@@ -57,7 +57,7 @@
 <div class="container-fluid padding-lg" *ngIf="related">
     <div class="row">
         <h1 class="text-center">
-            <span class="col1">{{related.length}}</span> 
+            <small class="col1 xxl">{{related.length}}</small> 
             {{title | titlecase}} Stories
         </h1>
         <div class="col-lg-6 text-center" *ngFor="let s of related | paginate: { id:'resultsPage', itemsPerPage: tableSize, currentPage: page, totalItems: count}; let i = index">

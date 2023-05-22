@@ -260,15 +260,16 @@ textarea{
     width: 100px;
     height: 140px;
 }
-
+@media only screen and (min-width: 240px) and (max-width: 480px){
+    #back, #follow, #share, #toggle{
+        font-size: xx-small;
+    }
+}
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 480px) {
     .cardImg{
         max-height:480px;
         width:100%;
-    }
-    #back, #follow, #toggle, #share{
-        font-size: xx-small;
     }
     .footer{
         font-size:1px;
@@ -284,6 +285,14 @@ textarea{
         height:290px;
         width:220px;
     }
+    #back, #follow, #share, #toggle{
+        font-size: small;
+    }
+    p,h1,h2,h3,h4,h5,h6,small,span{
+        font-size: large;
+        line-height: 27.5px;
+    }
+
 }
 
 @media only screen and (min-width: 552px){
@@ -321,6 +330,10 @@ textarea{
     .featCard{
         width:100%;
     }
+    p,h1,h2,h3,h4,h5,h6,small,span,i,a,button,footer{
+        font-size: xx-large;
+        line-height: 35px;
+    }
 }
 
 
@@ -348,6 +361,10 @@ textarea{
 @media only screen and (min-width:1000px){
     #discussImg{
         min-height:280px;
+    }
+    p,h1,h2,h3,h4,h5,h6,small,span{
+        font-size: large;
+        line-height: 25px;
     }
 }
 @media only screen and (min-width:1024px){

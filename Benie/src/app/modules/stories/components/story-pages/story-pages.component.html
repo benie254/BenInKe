@@ -1,11 +1,13 @@
 <div class="container-fluid height-auto" id="readSBg">
     <span class="sticky-top top">
+      
       <span>
           <button id="back" class="small btn btn-sm btn-dark col1" (click)="back()" type="button"><i class="fa-solid fa-angles-left"></i></button>
       </span> 
+      
       &nbsp;
           <span>
-              <button id="toggle" class="small btn btn-sm btn-dark" style="color:blue;">
+              <button id="toggle" class="btn btn-sm btn-dark" style="color:blue;">
                   <span>
                       <span><i class="fa-solid fa-moon"></i></span>&nbsp;&nbsp;<span><mat-slide-toggle style="height:5px;" (click)="changeBg($event)"></mat-slide-toggle></span>&nbsp;&nbsp;<span style="color:orange;"><i class="fa-regular fa-lightbulb"></i></span>
   
@@ -32,9 +34,9 @@
                 <mat-step state="book" labelPosition="bottom" #stepper>
                   <ng-template matStepContent>
                     <div *ngFor="let p of chapterPages | paginate: { id:'readPage', itemsPerPage: tableSize, currentPage: page, totalItems: count}; let i = index">
-                      <h1 class="text-center xxl" id="chaptDet">{{chapDet.title}} <br><span> <h5><span><i class="fa-solid fa-layer-group"></i> {{chaps.length}} <span *ngIf="story.category === 'flash-fiction'">part(s)</span><span *ngIf="story.category !== 'flash-fiction'">chapters</span></span> &nbsp; <i class="fa-regular fa-file"></i> {{chapterPages.length}} page(s) &nbsp;&nbsp;&nbsp; <i class="fa-regular fa-clock"></i> <span *ngIf="!readHrs && !readSecs"> {{readGen}}</span> 
-                        <span *ngIf="!readSecs && readHrs"> {{readHrs}}</span> 
-                        <span *ngIf="!readHrs && readSecs"> {{readSecs}}</span> read</h5></span></h1>
+                      <h1 class="text-center xxl text-primary" id="chaptDet">{{chapDet.title}} <br><span> <h5><span><span class="col2"><i class="fa-solid fa-layer-group"></i> {{chaps.length}} </span> <span class="col2" *ngIf="story.category === 'flash-fiction'">part(s)</span><span class="col2" *ngIf="story.category !== 'flash-fiction'">chapters</span></span> &nbsp; <span class="col2"><i class="fa-regular fa-file"></i> {{chapterPages.length}} page(s)</span>  &nbsp;&nbsp;&nbsp; <span class="col2"><i class="fa-regular fa-clock"></i> <span *ngIf="!readHrs && !readSecs"> {{readGen}}</span></span> 
+                        <span *ngIf="!readSecs && readHrs" class="col2"> {{readHrs}}</span> 
+                        <span *ngIf="!readHrs && readSecs" class="col2"> {{readSecs}}</span> <span class="col2"> read</span></h5></span></h1>
                       <div class="myReader lg">
                         <p style="font-family:monospace;line-height:30px;" [innerHTML]="p.description"></p>
                       </div>
@@ -96,7 +98,7 @@
         <div class="shadow padding-md">
           <br>
           <small>
-            <h4 class="text-primary">
+            <h3 class="text-primary">
               {{story.title}} 
               <br> 
               <span class="col2">
@@ -129,11 +131,12 @@
                   </span>
                 </small>
               </span>
-            </h4>
+            </h3>
             <p>{{story.description}}</p>
             <span>
               <mat-chip-list aria-label="Categories">
                 <mat-chip color="primary" selected routerLink="/stories/related/category/{{story.category}}">{{story.category}}</mat-chip>
+                <mat-chip color="accent" selected routerLink="/stories/related/genre/{{story.genre}}">{{story.genre}}</mat-chip>
               </mat-chip-list>
             </span>
             <br>
@@ -151,7 +154,7 @@
             <span *ngIf="storyComments">
               <span> 
                 <span class="text-primary">Latest Comments</span> 
-                ({{topComments.length}} of <a routerLink="/stories/{{story.title}}/{{story.id}}">{{storyComments.length}}</a> ) 
+                ({{topComments.length}} of <span class="col1">{{storyComments.length}}</span> ) 
               </span>
               <br>
               <span>

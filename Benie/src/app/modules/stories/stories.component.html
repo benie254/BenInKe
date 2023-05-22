@@ -66,8 +66,10 @@
             <div class="col-lg-2">
                 <br>
                 <mat-chip-list>
-                    <mat-chip routerLink="/stories/related/category/{{s.category}}" color="accent">{{s.category}}</mat-chip>
-                    <mat-chip routerLink="/stories/related/genre/{{s.genre}}" selected color="accent">{{s.genre}}</mat-chip>
+                  <mat-chip routerLink="/stories/related/category/{{s.category}}" color="accent">{{s.category}}</mat-chip>
+                </mat-chip-list>
+                <mat-chip-list>
+                  <mat-chip routerLink="/stories/related/genre/{{s.genre}}" selected color="accent">{{s.genre}}</mat-chip>
                 </mat-chip-list>
             </div>
             <div class="col-lg-10">
@@ -91,7 +93,6 @@
                         </span>
                     </h1>
                       <div class="card-body">
-                        <br>
                         <p>{{s.description}}</p>
                        <br>
                         <span>
