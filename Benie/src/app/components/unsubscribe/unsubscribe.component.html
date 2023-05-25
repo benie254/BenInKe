@@ -28,17 +28,17 @@
 <div class="container-fluid">
     <span><button (click)="back()" class="btn btn-sm">Go Back</button></span>
     <div style="padding:5%;">
-        <h1 class="text-center">
-            <span class="col1">Sad to see you leave <i class="fa-regular fa-face-sad-tear"></i></span>
+        <h1 class="text-center" *ngIf="!unsubbed">
+            <span class="col1 larger">Sad to see you leave <i class="fa-regular fa-face-sad-tear"></i></span>
             <br>
             <span>
-                <h4 class="col2"> One more thing before we say goodbye.</h4>
+                <h3 class="col2 larger"> One more thing before we say goodbye.</h3>
             </span>
         </h1>
         <span class="text-center">
             <p>
                 <span>
-                    <form #unsubForm="ngForm">
+                    <form #unsubForm="ngForm" *ngIf="!unsubbed">
                         <h3 class="text-center">Please enter the email address associated with your newsletter subscription below:</h3>
                         <mat-form-field style="min-width:25%;" appearance="fill">
                             <mat-label>Email</mat-label>
@@ -54,8 +54,8 @@
                             <button mat-raised-button color="primary" [disabled]="unsubForm.invalid" class="w-50" type="button" (click)="checkValues()">Unsubscribe</button>
                         </div>
                     </form>
-                    <h5 class="xxl">
-                        <span>Thank you for giving the Benie Writes newsletter a chance. 
+                    <h5 class="xxl" *ngIf="unsubbed">
+                        <span>Thank you for giving the <span class="col1">Benie Writes</span> newsletter a chance. 
                             <br> It's been a delight to have you with us!
                         </span>
                         <br>

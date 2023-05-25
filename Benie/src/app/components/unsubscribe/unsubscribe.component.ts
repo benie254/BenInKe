@@ -37,10 +37,8 @@ export class UnsubscribeComponent implements OnInit {
     this.service.unsubscribe(email).subscribe({
       next: (res) => {
         Notiflix.Loading.remove();
-        Notiflix.Report.success(
+        Notiflix.Notify.success(
           'Unsubscribed!',
-          "You have successfully unsubscribed from Benie's monthly newsletter.",
-          'Great',
         )
         this.unsubbed = true;
       }
