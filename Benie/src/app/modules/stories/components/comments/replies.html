@@ -1,6 +1,12 @@
 <div class="container-fluid" style="min-height:300px;">
     <p style="font-size:small;margin:1.5%;padding:1.5%;">
-        <span style="font-size:smaller;" class="col2"><span>{{det.date | dateAgo}} &nbsp;&nbsp; | &nbsp;&nbsp; <i class="fa-regular fa-circle-user"></i> <span *ngIf="det.commented_by">&nbsp;{{det.commented_by}}</span><span *ngIf="!det.commented_by">&nbsp;Anonymous</span> </span></span> <br> <span *ngIf="det.comment">{{det.comment}}</span><span *ngIf="!det.comment">Beautiful piece!</span>
+        <span style="font-size:smaller;" class="col2">
+            <span>{{det.date | dateAgo}} <i class="fa-regular fa-circle-user"></i> 
+                <span *ngIf="det.commented_by">&nbsp;{{det.commented_by}}</span>
+                <span *ngIf="!det.commented_by">&nbsp;Anonymous</span> 
+            </span>
+        </span> 
+        <br> <span *ngIf="det.comment">{{det.comment}}</span><span *ngIf="!det.comment">Beautiful piece!</span>
         <br><br>
         <span>
             <div class="row">
@@ -9,9 +15,14 @@
                     <span *ngIf="this.cReplies">
                         <span *ngFor="let cr of this.cReplies">
                             <p>
-                                <span><span class="divide" style="font-size:x-small">{{cr.date | dateAgo}} &nbsp;&nbsp; | &nbsp;&nbsp; <span><i class="fa-regular fa-circle-user"></i></span>  <span *ngIf="cr.replied_by">&nbsp;{{cr.replied_by}}</span><span *ngIf="!cr.replied_by">&nbsp;Anonymous</span></span> <br> <span *ngIf="cr.msg">{{cr.msg}}</span><span *ngIf="!cr.msg">Beautiful piece!</span></span>
+                                <span class="col1">
+                                    <span class="divide" style="font-size:x-small">
+                                        <span>{{cr.date | dateAgo}}&nbsp;</span> <span><i class="fa-regular fa-circle-user"></i></span>  
+                                        <span *ngIf="cr.replied_by">&nbsp;{{cr.replied_by}}</span><span *ngIf="!cr.replied_by">&nbsp;Anonymous</span>
+                                    </span>
+                                </span> 
+                                <span *ngIf="cr.msg">{{cr.msg}}</span><span *ngIf="!cr.msg">Beautiful piece!</span>
                             </p>
-                            
                         </span>
                     </span>
                 </div>

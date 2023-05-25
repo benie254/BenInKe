@@ -44,7 +44,7 @@
                                     &nbsp;&nbsp; 
                                     <span><i class="fa-regular fa-comment"></i> {{comments.length}}</span> 
                                     &nbsp;&nbsp; 
-                                    <i class="fa-regular fa-clock"></i> {{readTime}}  
+                                    <span><i class="fa-regular fa-clock"></i> {{readTime}}</span>
                                     &nbsp;&nbsp; 
                                 </small>
                             </span>
@@ -57,9 +57,9 @@
                 <p>
                     <span>
                         <small class="col2">
-                            published <a class="col2" routerLink="/poems/related/date/{{details.uploaded | date: 'YYYY-MM-dd'}}">{{details.uploaded | date }}</a> 
-                            by <a class="col2" routerLink="/about">Benie Langat <img src="{{authorImg}}" class="border-50" height="20px" width="20px" alt=""></a> 
-                            in <a class="col2" routerLink="/poems/related/category/{{details.category}}">{{details.category}}</a>
+                            <span>published <a class="col2" routerLink="/poems/related/date/{{details.uploaded | date: 'YYYY-MM-dd'}}">{{details.uploaded | date }}</a></span>
+                            <span> by <a class="col2" routerLink="/about">Benie Langat <img src="{{authorImg}}" class="border-50" height="20px" width="20px" alt=""></a></span>
+                            <span>in <a class="col2" routerLink="/poems/related/category/{{details.category}}">{{details.category}}</a></span>
                         </small>
                     </span>
                 </p>
@@ -95,6 +95,7 @@
     </div>
     <br><br>
     <div class="container-fluid">
+        <br>
         <app-search></app-search>
     </div>
     <br><br><br><br>

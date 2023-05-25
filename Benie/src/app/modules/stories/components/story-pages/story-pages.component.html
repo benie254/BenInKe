@@ -34,7 +34,7 @@
                 <mat-step state="book" labelPosition="bottom" #stepper>
                   <ng-template matStepContent>
                     <div *ngFor="let p of chapterPages | paginate: { id:'readPage', itemsPerPage: tableSize, currentPage: page, totalItems: count}; let i = index">
-                      <h1 class="text-center xxl text-primary" id="chaptDet">{{chapDet.title}} <br><span> <h5><span><span class="col2"><i class="fa-solid fa-layer-group"></i> {{chaps.length}} </span> <span class="col2" *ngIf="story.category === 'flash-fiction'">part(s)</span><span class="col2" *ngIf="story.category !== 'flash-fiction'">chapters</span></span> &nbsp; <span class="col2"><i class="fa-regular fa-file"></i> {{chapterPages.length}} page(s)</span>  &nbsp;&nbsp;&nbsp; <span class="col2"><i class="fa-regular fa-clock"></i> <span *ngIf="!readHrs && !readSecs"> {{readGen}}</span></span> 
+                      <h1 class="text-center xxl text-primary" id="chaptDet" style="line-height:40px;">{{chapDet.title}} <br><span> <h5><span><span class="col2"><i class="fa-solid fa-layer-group"></i> {{chaps.length}} </span> <span class="col2" *ngIf="story.category === 'flash-fiction'">part(s)</span><span class="col2" *ngIf="story.category !== 'flash-fiction'">chapters</span></span> &nbsp; <span class="col2"><i class="fa-regular fa-file"></i> {{chapterPages.length}} page(s)</span>  &nbsp;&nbsp;&nbsp; <span class="col2"><i class="fa-regular fa-clock"></i> <span *ngIf="!readHrs && !readSecs"> {{readGen}}</span></span> 
                         <span *ngIf="!readSecs && readHrs" class="col2"> {{readHrs}}</span> 
                         <span *ngIf="!readHrs && readSecs" class="col2"> {{readSecs}}</span> <span class="col2"> read</span></h5></span></h1>
                       <div class="myReader lg">
@@ -144,7 +144,7 @@
               <span>
                 <img src="{{authorImg}}" height="35" width="35" class="border-50" alt="">
               </span> 
-              By <a routerLink="/about" class="col2">{{story.author}}</a> 
+              <span>By </span> <a routerLink="/about" class="col2">{{story.author}}</a> 
               &nbsp;&nbsp;|&nbsp;&nbsp; 
               <span>First published {{story.first_published | date}}</span>
             </p>
@@ -159,9 +159,9 @@
               <br>
               <span>
                 <p *ngFor="let tc of topComments" class="shadow sm margin-md padding-md">
-                  <span class="smaller col2">
-                    {{tc.date | dateAgo}} 
-                    &nbsp;&nbsp; | &nbsp;&nbsp; <i class="fa-regular fa-circle-user"></i> 
+                  <span class="sm col2">
+                    <span>{{tc.date | dateAgo}} </span>
+                    <i class="fa-regular fa-circle-user"></i>
                     <span *ngIf="tc.commented_by">&nbsp;{{tc.commented_by}}</span>
                     <span *ngIf="!tc.commented_by">&nbsp;Anonymous</span> 
                   </span> 
@@ -201,4 +201,23 @@
     <br>
     <br>
   </div>
-  
+  <footer class="col2 text-center" id="footer">
+    <h3>
+        
+        <span>
+            <a href="https://twitter.com/benie_langat" target="_blank"><i class="fa-brands fa-square-twitter"></i></a> 
+            &nbsp;
+            <a href="https://www.facebook.com/benie.davinci/" target="_blank"><i class="fa-brands fa-square-facebook"></i></a>
+            &nbsp;
+        </span>
+        <span>
+            <a href="https://github.com/benie254" target="_blank"><i class="fa-brands fa-square-github"></i></a> 
+            &nbsp;
+            <a href="https://www.linkedin.com/in/benson-langat-fullstack-developer/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+        </span>
+        <br>
+        <span>2023 | All rights reserved <i class="fa-solid fa-copyright"></i> <a class="col2" href="/about"><span>Benson Langat</span></a>  </span>
+
+        
+    </h3>
+</footer>  

@@ -217,11 +217,6 @@ export class StoryPagesComponent implements OnInit {
     })
   }
   
-  
-  
-  
-  
-  
   changeBg(event: any){
     const myDiv = (<HTMLDivElement>document.getElementById('readSBg'));
     const content = (<HTMLDivElement>document.getElementById('sContent'));
@@ -252,7 +247,7 @@ export class StoryPagesComponent implements OnInit {
   }
   back(){
     if(this.story.category !== 'flash-fiction'){
-      this.router.navigate(['/stories/' + this.story.category + '/' + this.story.title + '/' + this.storyId])
+      this.router.navigate(['/stories/' + this.story.category + '/' + this.story.title + '/' + 'preview/' + this.storyId])
     }else if(this.story.category === 'flash-fiction'){
       history.back();
     }

@@ -19,12 +19,12 @@
                     <input type="text" name="story" ngModel style="display:none" [(ngModel)]="storyId">
                     <input type="text" name="chapter" ngModel style="display:none" [(ngModel)]="chapterId">
                     <input type="text" name="poem" ngModel style="display:none" [(ngModel)]="poemId">
-                    <textarea class="textarea" type="text" matInput ngModel name="comment"></textarea>
+                    <textarea class="textarea" style="font-size:larger;" type="text" matInput ngModel name="comment"></textarea>
                 </mat-form-field>
                 <div *ngIf="!noInput">
                     <mat-form-field>
                         <mat-label class="bg-light" color="primary">Name</mat-label>
-                        <input name="commented_by" matInput ngModel type="text">
+                        <input name="commented_by" style="font-size:larger;" matInput ngModel type="text">
                     </mat-form-field>
                 </div>
                 &nbsp;

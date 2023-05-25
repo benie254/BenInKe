@@ -21,6 +21,7 @@ export class PoetryService {
   replies = api + 'replies/all';
   comLike = api + 'feedback/likes/';
   comReply = api + 'feedback/replies/';
+  commentDet = api + 'feedback/details/';
 
   constructor(
     private handler: ReqHandlerService,
@@ -63,5 +64,8 @@ export class PoetryService {
   }
   commentReplies(id: number):Observable<any>{
     return this.handler.handleGET<any>(this.comReply + id)
+  }
+  commentDetails(id: number):Observable<any>{
+    return this.handler.handleGET<any>(this.commentDet + id)
   }
 }

@@ -34,44 +34,17 @@ export class CommentsComponent implements OnInit {
   public trackByFn = (index, item): void => {
     return item.id;
   }
-  copyC = (text: any): void => {
-    setTimeout(() => {
-      localStorage.removeItem("commId");
-      localStorage.setItem("commId",text);
-      this.commId = localStorage.getItem('commId');
-      this.commentReactions(this.commId)
-    },1000)
-  }
-  commentReactions(id: number){
-    this.poetryService.commentReplies(id).subscribe({
-      next: (res) => {
-        this.commentLikes = res;
-        console.warn("comment likes",res);
-      }
-    })
-  }
   copyComment = (text: any): void => {
-    setTimeout(() => {
-      localStorage.removeItem("commentId");
+    localStorage.removeItem("commentId");
     localStorage.setItem("commentId",text);
     this.commentId = localStorage.getItem('commentId');
-    this.commentFeedbacks(this.commentId)
-    },1000)
   }
   replyBottomSheet(): void {
     setTimeout(() => {
       this._bottomSheet.open(RepliesBottomSheet, {
         data: {myId: this.commentId, sId: this.storyId},
       });
-    },15)
-  }
-  commentFeedbacks(id: number){
-    this.poetryService.commentReplies(id).subscribe({
-      next: (res) => {
-        this.commentReplies = res;
-        console.warn("comment likes",res);
-      }
-    })
+    },100)
   }
 
 }
@@ -94,7 +67,6 @@ export class RepliesBottomSheet implements OnInit {
   constructor(
     @Inject(MAT_BOTTOM_SHEET_DATA) public data: {myId: any, sId: any},
     private _bottomSheetRef: MatBottomSheetRef<RepliesBottomSheet>,
-    private adminPoetry:AdminPoetryService,
     private poetryService:PoetryService,
     ) {}
 
@@ -113,7 +85,7 @@ export class RepliesBottomSheet implements OnInit {
       localStorage.setItem("commentId",text);
       this.commentId = localStorage.getItem("commentId");
       this.commentFeeds(this.commentId);
-    },2000)
+    },1000)
   }
   commentFeeds(id: any){
     this.poetryService.commentReplies(id).subscribe({
@@ -132,7 +104,7 @@ export class RepliesBottomSheet implements OnInit {
 
   commentDetails(){
     Notiflix.Loading.pulse('fetching details...')
-    this.adminPoetry.commentDetails(this.data.myId).subscribe({
+    this.poetryService.commentDetails(this.data.myId).subscribe({
       next: (res) => {
         Notiflix.Loading.remove();
         this.det = res;

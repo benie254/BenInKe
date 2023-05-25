@@ -19,6 +19,8 @@ export class ResultsComponent implements OnInit {
   tableSizes: any = [2, 5, 10, 15];
   dateInput: any;
   values = '';
+  searched: any;
+  categSearched: boolean = false;
 
   constructor(
     private route:ActivatedRoute,
@@ -28,10 +30,16 @@ export class ResultsComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(
       params => {
+        this.searched = (params['id']),
         this.searchByDate(params['id']),
         this.relatedPoems(params['id'])
       }
     )
+    if(this.searched === 'Poems' || this.searched === 'Spoken-Word' || this.searched === 'One-Liners' || this.searched === 'Poetic-Chains' || this.searched === 'Poetic-Notes'){
+      this.categSearched = true;
+    }else{
+      this.categSearched = false;
+    }
     this.bg();
   }
   relatedPoems(id: string){
@@ -56,8 +64,8 @@ export class ResultsComponent implements OnInit {
       next: (res) => {
         Notiflix.Loading.remove();
         this.poemsByDate = res;
-        this.onTableDataChange(this.page)
-      }
+        this.onTableDataChange(this.page);
+      },
     })
   }
   back(){

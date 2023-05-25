@@ -254,7 +254,7 @@ export class ReadComponent implements OnInit {
     }
   }
   back(){
-    this.router.navigate(['/stories/library'])
+    this.router.navigate(['/stories/library']);
   }
   likeComment = (data: any): void => {
     Notiflix.Loading.pulse('processing...');

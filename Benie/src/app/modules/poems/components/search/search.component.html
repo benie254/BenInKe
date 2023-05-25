@@ -27,7 +27,7 @@
             </div>
             <div *ngIf="empty || noPoem && pInput">
                 <h4>Sorry, no poems were posted on 
-                    <small>{{pValues | date}}</small>
+                    <span class="col1">{{pValues | date}}</span>
                 </h4>
             </div>
             <div class="container padding">
@@ -44,7 +44,7 @@
                                             <div class="text-center divide">
                                                 <span class="col2 xsm">
                                                     <a routerLink="/poems/related/date/{{p.uploaded|date: 'YYYY-MM-dd'}}" class="col2">{{p.uploaded | date}}</a> 
-                                                    &nbsp;&nbsp; in &nbsp;&nbsp; 
+                                                    &nbsp;<span>in</span>&nbsp; 
                                                     <a routerLink="/poems/related/category/{{p.category}}" class="col2">{{p.category}}</a>
                                                 </span>
                                             </div>
@@ -98,7 +98,7 @@
                                 <div class="text-center divide">
                                     <span class="col2 xsm">
                                         <a routerLink="/poems/related/date/{{p.uploaded|date: 'YYYY-MM-dd'}}" class="col2">{{p.uploaded | date}}</a> 
-                                        &nbsp;&nbsp; in &nbsp;&nbsp; 
+                                        &nbsp;<span>in</span>&nbsp; 
                                         <a routerLink="/poems/related/category/{{p.category}}" class="col2">{{p.category}}</a>
                                     </span>
                                 </div>

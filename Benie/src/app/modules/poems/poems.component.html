@@ -7,7 +7,7 @@
         <div class="padding-lg">
             <br>
             <span *ngIf="pinned">
-                <h1 class="col1" id="featuredTitle"><a routerLink="/poems/{{pinned.category}}/{{pinned.title}}/read/{{pinned.id}}">{{pinned.title}}</a> <br> <span class="col2 xsm">{{pinned.uploaded | date}}</span></h1>
+                <h1 class="col1" id="featuredTitle"><a routerLink="/poems/{{pinned.category}}/{{pinned.title}}/read/{{pinned.id}}">{{pinned.title}}</a> <br> <span class="col2 sm">{{pinned.uploaded | date}}</span></h1>
                 <p [innerHTML]="pinned.description | truncate:[460, '...']"></p>
             </span>
         </div>
@@ -36,7 +36,7 @@
                     <div class="card-footer text-center">
                         <span class="col2 xsm">
                             <a routerLink="/poems/related/date/{{p.uploaded|date: 'YYYY-MM-dd'}}" class="col2">{{p.uploaded | date}}</a> 
-                            by <a routerLink="/about" class="col2">Benson Langat</a> &nbsp;&nbsp;|&nbsp;&nbsp; 
+                            <span> by </span> <a routerLink="/about" class="col2">Benson Langat</a> &nbsp;&nbsp;|&nbsp;&nbsp; 
                             <a routerLink="/poems/related/category/{{p.category}}" class="col2">{{p.category}}</a>
                         </span>
                     </div>

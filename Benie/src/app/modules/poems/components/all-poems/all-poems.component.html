@@ -4,10 +4,11 @@
     <div class="row padding-lg">
         <h1 class="text-center">All <small class="text-primary xxl">{{poems.length}}</small> Poems</h1>
         <div class="col-lg-6 padding-xl" *ngFor="let p of poems | paginate: { id:'allPoemsPage', itemsPerPage: tableSize, currentPage: page, totalItems: count}; let i = index">
-            <small class="divide col2">published 
+            <small class="divide col2">
+                <span>published</span> 
                 &nbsp;
                 <a routerLink="/poems/related/date/{{p.uploaded | date: 'YYYY-MM-dd'}}" class="col2">{{p.uploaded | date}}</a> 
-                &nbsp;&nbsp; in &nbsp;
+                &nbsp;&nbsp; <span>in</span> &nbsp;
                 <a routerLink="/poems/related/category/{{p.category}}" class="col2">{{p.category}}</a>
             </small>
             <a routerLink="/poems/{{p.category}}/{{p.title}}/read/{{p.id}}"><img src="{{p.cover}}" id="cover" alt=""></a>

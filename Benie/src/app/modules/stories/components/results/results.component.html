@@ -1,13 +1,13 @@
 <div *ngIf="!related">
     <span class="sticky-top">
-        <span (click)="back()" type="button" class="btn btn-sm col1">
+        <span (click)="back()" type="button" class="btn primT btn-sm col1">
             <i class="fa-solid fa-chevron-left"></i> Go Back
         </span> 
         <span style="float:right;">
-            <a class="navbar-brand" href="/stories"><span class="brand-font font-md-2" style="color:blueviolet">The Stories Lib </span></a>
+            <a class="navbar-brand" href="/stories"><span class="copse" style="color:blueviolet">The Stories Lib </span></a>
                                 
                 <img src="https://res.cloudinary.com/benie/image/upload/v1671555324/h02js8etvetdr5ctbmtf-removebg-preview_wge6nt.png" height="25" width="25" style="border-radius:50%;" alt="">
-                <a class="navbar-brand" href="/"><span class="brand-font font-md-2" style="color:blueviolet">Benie Writes </span></a>
+                <a class="navbar-brand" href="/"><span class="copse" style="color:blueviolet">Benie Writes </span></a>
                 &nbsp;
         </span>
     </span>
@@ -18,7 +18,7 @@
                 <h1 class="col2">Sorry, we found no related <span style="font-size:larger" *ngIf="searchTitle!='short-story'">"{{searchTitle}}"</span><span style="font-size:larger" *ngIf="searchTitle=='short-story'">"short"</span> stories.</h1>
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item dropdown">
-                    <a class="col1 nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="col1 nav-link dropdown-toggle copse lg" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Try a different category
                     </a>
                     <ul class="dropdown-menu">
@@ -31,7 +31,7 @@
                     </li>
                 
                     <li class="nav-item dropdown">
-                        <a class="col1 nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="col1 nav-link copse lg dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Or a different Genre
                         </a>
                         <ul class="dropdown-menu">

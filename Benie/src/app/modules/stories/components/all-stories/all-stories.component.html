@@ -1,5 +1,6 @@
 <div class="container-fluid">
     <div class="text-center">
+      <br>
       <mat-form-field class="w-50">
         <input matInput type="text" placeholder="Search anything..." list="datalistOptions" id="exampleDataList" (change)="titleValue($any($event.target).value)" name="search" [(ngModel)]="searchText">
         <mat-icon matSuffix>search</mat-icon>

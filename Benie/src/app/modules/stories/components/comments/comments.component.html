@@ -8,7 +8,7 @@
         <div class="col-md-6" *ngFor="let tc of topComments ; trackBy: trackByFn">
             <p class="shadow sm margin-md padding-md">
                 <span class="sm col2">
-                    {{tc.date | dateAgo}} &nbsp; <i class="fa-regular fa-circle-user"></i> 
+                    <span>{{tc.date | dateAgo}}</span>&nbsp;<i class="fa-regular fa-circle-user"></i> 
                     <span *ngIf="tc.commented_by">&nbsp;{{tc.commented_by}}</span>
                     <span *ngIf="!tc.commented_by">&nbsp;Anonymous</span> 
                 </span> 
@@ -28,7 +28,7 @@
                                 <button class="btn col1 btn-sm" type="submit"> 
                                     <i class="fa-solid fa-star col1"></i> <span class="sm"> Like</span>
                                 </button>  
-                                <span class="sm" class="col2"> {{tc.likes}} likes</span>
+                                <span class="sm col2"> {{tc.likes}} likes</span>
                             </span>
                         </form> 
                     </span> 
@@ -38,8 +38,8 @@
                         &nbsp;&nbsp; 
                     </button> 
                     <span> 
-                        <span class="sm" class="col2"> 
-                            <a type="button" (click)="copyComment(tc.id);replyBottomSheet()"> &nbsp;{{tc.replies}} replies</a>
+                        <span class="col2"> 
+                            <a type="button" (click)="copyComment(tc.id);replyBottomSheet()"> <span class="sm">&nbsp;{{tc.replies}} replies</span></a>
                         </span>
                     </span>
                 </span>
@@ -60,12 +60,7 @@
                 <div class="col-md-6" *ngFor="let c of storyComments">
                     <span class="divide sm">
                         <span class="col2">
-                            <span>{{c.date | dateAgo}}</span> 
-                            &nbsp;
-                            <span><i class="fa-regular fa-circle-user"></i></span> 
-                            &nbsp; 
-                            <span *ngIf="c.commented_by">&nbsp;{{c.commented_by}}</span>
-                            <span *ngIf="!c.commented_by">&nbsp;Anonymous</span>
+                            <span>{{c.date | dateAgo}}</span>&nbsp;<span><i class="fa-regular fa-circle-user"></i></span>&nbsp;<span *ngIf="c.commented_by">{{c.commented_by}}</span><span *ngIf="!c.commented_by">Anonymous</span>
                         </span> 
                     </span> 
                     <p class="sm margin-md padding-md">
@@ -82,20 +77,21 @@
                                         <button class="btn col1 btn-sm" type="submit" (click)="copyC(c.id)"> 
                                             <i class="fa-solid fa-star col1"></i> <span class="sm"> Like</span>
                                         </button>  
-                                        <span class="xsm" class="col2"> {{c.likes}} likes</span>
+                                        <span class="sm col2"> {{c.likes}} likes</span>
                                     </span>
                                 </form> 
                             </span> 
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                             <button class="btn btn-sm col1" type="button" (click)="copyComment(c.id);replyBottomSheet()"> 
                                 <i class="fa-regular fa-comment col1"></i> 
-                                <span class="xsm"> Reply </span> 
+                                <span class="sm"> Reply </span> 
                                 &nbsp;&nbsp; 
                             </button> 
                             <span> 
-                                <span class="xsm" class="col2"> 
+                                <span class="col2"> 
                                     <a type="button" (click)="copyComment(c.id);replyBottomSheet()"> 
-                                        &nbsp;{{c.replies}} replies
+                                        <span *ngIf="c.replies" class="sm">&nbsp;{{c.replies}} replies</span>
+                                        <span *ngIf="!c.replies" class="sm">&nbsp;0 replies</span>
                                     </a>
                                 </span>
                             </span>

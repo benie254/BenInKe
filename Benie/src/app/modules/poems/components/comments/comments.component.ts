@@ -24,10 +24,12 @@ export class CommentsComponent implements OnInit {
   @Input() trackByFn: () => void;
   commentReplies: any;
   @Input() poemId: any;
+  details: any;
 
   constructor(
     private poetryService:PoetryService,
     private _bottomSheet: MatBottomSheet,
+    private adminPoetry:AdminPoetryService,
   ) { 
   }
 
@@ -38,21 +40,13 @@ export class CommentsComponent implements OnInit {
     localStorage.removeItem("commentId");
     localStorage.setItem("commentId",text);
     this.selectedId = localStorage.getItem('commentId');
-    this.commentFeedbacks(this.selectedId);
-  }
-  commentFeedbacks(id: any){
-    this.poetryService.commentReplies(id).subscribe({
-      next: (res) => {
-        this.commentReplies = res;
-      }
-    })
   }
   openBottomSheet(): void {
     setTimeout(() => {
       this._bottomSheet.open(RepliesBottomSheet, {
         data: {myId: this.selectedId, pId: this.poemId},
       });
-    },5)
+    },100)
   }
 }
 
@@ -109,7 +103,7 @@ export class RepliesBottomSheet implements OnInit {
   }
   commentDetails(){
     Notiflix.Loading.pulse('fetching replies...')
-    this.adminPoetry.commentDetails(this.data.myId).subscribe({
+    this.poetryService.commentDetails(this.data.myId).subscribe({
       next: (res: Feedback) => {
         Notiflix.Loading.remove();
         this.det = res;

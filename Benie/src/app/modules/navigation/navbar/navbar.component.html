@@ -1,7 +1,7 @@
 
 <nav class="navbar bg-light navbar-expand-lg">
     <div class="container-fluid" >
-      <a class="navbar-brand col1" href="/">
+      <a class="navbar-brand col1 primT" href="/">
         <img src="{{brand}}" class="border-50" height="35" width="35" alt="">
         Benie Writes 
             <span class="col2 xsm"><br> <i>"with words, I give my thoughts life."</i></span>
@@ -14,14 +14,14 @@
         </ul>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active font-md-3 brand-font" aria-current="page" href="/"> 
-              <span class="welcome"><i class="fa-solid fa-house"></i> Welcome</span>
+            <a class="nav-link active brand-font" aria-current="page" href="/"> 
+              <span class="welcome warnT"><i class="fa-solid fa-house"></i> Welcome</span>
             </a>
           </li>
         </ul>
         <div>
           <span *ngIf="!isAdmin">
-            <a class="col1 nav-link active font-md-3 brand-font" aria-current="page" href="/about">About</a>
+            <a class="col1 nav-link active primT brand-font" aria-current="page" href="/about">About</a>
           </span>
           <span *ngIf="isAdmin">
             <a class="col1 nav-link active font-md-3 brand-font" aria-current="page" type="button" (click)="logout()">Logout</a>

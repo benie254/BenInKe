@@ -12,7 +12,6 @@ const api = 'http://127.0.0.1:8000/api/admin/';
 export class AdminPoetryService {
   addPoem = api + 'poems/add';
   updatePoem = api + 'poem/update/';
-  commentDet = api + 'feedback/details/';
 
   constructor(
     private handler: ReqHandlerService,
@@ -26,8 +25,5 @@ export class AdminPoetryService {
   }
   deletePoem(id: number): Observable<Poem>{
     return this.handler.handleDEL<Poem>(this.updatePoem + id);
-  }
-  commentDetails(id: number):Observable<any>{
-    return this.handler.handleGET<any>(this.commentDet + id)
   }
 }

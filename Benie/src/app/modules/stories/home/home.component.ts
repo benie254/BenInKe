@@ -49,7 +49,6 @@ export class HomeComponent implements OnInit {
   checkViews(){
     let hasVisited = sessionStorage.getItem('washere');
     if ( ! hasVisited ) {
-    Notiflix.Notify.success('Welcome to Benie Writes!');
     sessionStorage.setItem('washere', true.toString());
     } else {
       this.latestNotifs = '';

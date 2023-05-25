@@ -1,16 +1,16 @@
 <div *ngIf="poems && poems.length !== 0 || poemsByDate && poemsByDate.length !== 0">
     <app-nav [poems]="poems" [poemsByDate]="poems"></app-nav>
     </div>
-    <div class="container-fluid" *ngIf="poems && poems.length !== 0">
-        <div class="row padding-xl">
+    <div class="container-fluid" *ngIf="categSearched">
+        <div class="row padding-xl" *ngIf="poems && poems.length !== 0">
             <h1 class="text-center">
                 <small class="text-primary xxl">{{poems.length}}</small> {{categ}}
             </h1>
             <div class="col-lg-6 padding-xxl" *ngFor="let p of poems | paginate: { id:'resultsPage', itemsPerPage: tableSize, currentPage: page, totalItems: count}; let i = index">
                 <small class="divide col2">
-                    published &nbsp;
+                    <span>published</span> &nbsp;
                     <a routerLink="/poems/related/date/{{p.uploaded | date: 'YYYY-MM-dd'}}" class="col2">{{p.uploaded | date}}</a> 
-                    &nbsp;&nbsp; in &nbsp;
+                    &nbsp;&nbsp; <span>in</span> &nbsp;
                     <a routerLink="/poems/related/category/{{p.category}}" class="col2">{{p.category}}</a>
                 </small>
                 <a routerLink="/poems/{{p.category}}/{{p.title}}/read/{{p.id}}">
@@ -25,11 +25,48 @@
                 <pagination-controls id="resultsPage" previousLabel="Prev" nextLabel="Next" (pageChange)="onTableDataChange($event)"></pagination-controls>
               </div>
         </div>
+        <div *ngIf="poems.length === 0 || !poems">
+            <span class="sticky-top">
+                <span (click)="back()" type="button" class="btn primT btn-sm col1"><i class="fa-solid fa-chevron-left"></i> Go Back</span> &nbsp;&nbsp;&nbsp;</span>
+            <div class="container padding-lg">
+            <div class="row">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-9">
+                    <h1 class="col2">Sorry, we could not find any related poems.</h1>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item dropdown">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <a class="col1 primT nav-link copse lg dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Try a different category &nbsp;&nbsp;
+                                      </a>
+                                      <ul class="dropdown-menu">
+                                        <li><a class="col1 dropdown-item" routerLink="/poems/related/category/Poems">Poems</a></li>
+                                        <li><a class="col1 dropdown-item" routerLink="/poems/related/date/{{today | date: 'YYYY-MM-dd'}}">Today's Poems</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="col1 dropdown-item" routerLink="/poems/related/category/Spoken-Word">Spoken-Word</a></li>
+                                        <li><a class="col1 dropdown-item" routerLink="/poems/related/category/One-Liners">One-Liners</a></li>
+                                        <li><a class="col1 dropdown-item" routerLink="/poems/related/category/Poetic-Chains">Poetic-Chains</a></li>
+                                        <li><a class="col1 dropdown-item" routerLink="/poems/related/category/Poetic-Notes">Poetic-Notes</a></li>
+                                      </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <p style="margin-top:1%;" type="button" class="col1 primT" routerLink="/poems/all">Or view all poems</p>
+                                </div>
+                            </div>
+                          
+                        </li>
+                    </ul>
+                </div>
+                <img src="{{nothingImg}}" id="nothing" alt="">
+            </div>
+            </div>
+        </div>
         <br><br>
     </div>
 
-    <div class="container-fluid" *ngIf="poemsByDate && poemsByDate.length !== 0">
-        <div class="row padding-xl">
+    <div class="container-fluid" *ngIf="!categSearched">
+        <div class="row padding-xl" *ngIf="poemsByDate && poemsByDate.length !== 0">
             <h1 class="text-center">
                 <small class="text-primary xxl">
                     {{poemsByDate.length}}
@@ -38,9 +75,9 @@
             </h1>
             <div class="col-lg-6 padding-xxl" *ngFor="let p of poemsByDate | paginate: { id:'resultsPage', itemsPerPage: tableSize, currentPage: page, totalItems: count}; let i = index">
                 <small class="divide col2">
-                    published &nbsp;
+                    <span>published</span> &nbsp;
                     <a routerLink="/poems/related/date/{{p.uploaded | date: 'YYYY-MM-dd'}}" class="col2">{{p.uploaded | date}}</a> 
-                    &nbsp;&nbsp; in &nbsp;
+                    &nbsp;&nbsp; <span>in</span> &nbsp;
                     <a routerLink="/poems/related/category/{{p.category}}" class="col2">{{p.category}}</a>
                 </small>
                 <a routerLink="/poems/{{p.category}}/{{p.title}}/read/{{p.id}}">
@@ -55,26 +92,49 @@
                 <pagination-controls id="resultsPage" previousLabel="Prev" nextLabel="Next" (pageChange)="onTableDataChange($event)"></pagination-controls>
               </div>
         </div>
+        <div *ngIf="!poemsByDate || poemsByDate.length == 0">
+            <span class="sticky-top">
+                <span (click)="back()" type="button" class="btn btn-sm col1"><i class="fa-solid fa-chevron-left"></i> Go Back</span> &nbsp;&nbsp;&nbsp;</span>
+            <div class="container padding-lg">
+            <div class="row">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-9">
+                    <h1 class="col2">Sorry, we could not find any related poems.</h1>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item dropdown">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <a class="col1 primT nav-link copse lg dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Try a different category &nbsp;&nbsp;
+                                      </a>
+                                      <ul class="dropdown-menu">
+                                        <li><a class="col1 dropdown-item" routerLink="/poems/related/category/Poems">Poems</a></li>
+                                        <li><a class="col1 dropdown-item" routerLink="/poems/related/date/{{today | date: 'YYYY-MM-dd'}}">Today's Poems</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="col1 dropdown-item" routerLink="/poems/related/category/Spoken-Word">Spoken-Word</a></li>
+                                        <li><a class="col1 dropdown-item" routerLink="/poems/related/category/One-Liners">One-Liners</a></li>
+                                        <li><a class="col1 dropdown-item" routerLink="/poems/related/category/Poetic-Chains">Poetic-Chains</a></li>
+                                        <li><a class="col1 dropdown-item" routerLink="/poems/related/category/Poetic-Notes">Poetic-Notes</a></li>
+                                      </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <p style="margin-top:1%;" type="button" class="col1 primT" routerLink="/poems/all">Or view all poems</p>
+                                </div>
+                            </div>
+                          
+                        </li>
+                    </ul>
+                    <br><br>
+                    
+
+                </div>
+                <img src="{{nothingImg}}" id="nothing" alt="">
+            </div>
+            </div>
+        </div>
         <br><br>
     </div>
 
-
-    <div *ngIf="!poems || poems.length === 0 || !poems.length">
-        <span class="sticky-top">
-            <span (click)="back()" type="button" class="btn btn-sm col1"><i class="fa-solid fa-chevron-left"></i> Go Back</span> &nbsp;&nbsp;&nbsp;</span>
-        <div class="container padding-lg">
-        <div class="row">
-            <div class="col-lg-3"></div>
-            <div class="col-lg-9">
-                <h1 class="col2">Sorry, we could not find any related poems.</h1>
-                <p>However, there are plenty more you could explore.</p>
-                <button mat-raised-button color="primary" routerLink="/poems/all">View Poems</button>
-            </div>
-            <img src="{{nothingImg}}" id="nothing" alt="">
-        </div>
-        </div>
-    </div>
-    
     <div>
         <app-poem-footer></app-poem-footer>
     </div>

@@ -2,7 +2,7 @@
     <p *ngIf="det" class="sm margin-lg padding-lg">
         <span class="smaller col2">
             <span>
-                {{det.date | dateAgo}} &nbsp;&nbsp; | &nbsp;&nbsp; <i class="fa-regular fa-circle-user"></i> 
+                <span>{{det.date | dateAgo}} <i class="fa-regular fa-circle-user"></i></span> 
                 <span *ngIf="det.commented_by">&nbsp;{{det.commented_by}}</span>
                 <span *ngIf="!det.commented_by">&nbsp;Anonymous</span> 
             </span>
@@ -19,13 +19,12 @@
                         <span *ngFor="let cr of this.cReplies">
                             <p>
                                 <span>
-                                    <span class="divide xsm">
-                                        {{cr.date | dateAgo}} &nbsp;&nbsp; | &nbsp;&nbsp; 
+                                    <span class="divide xsm col1">
+                                        <span>{{cr.date | dateAgo}}</span>&nbsp; 
                                         <span><i class="fa-regular fa-circle-user"></i></span>  
                                         <span *ngIf="cr.replied_by">&nbsp;{{cr.replied_by}}</span>
                                         <span *ngIf="!cr.replied_by">&nbsp;Anonymous</span>
                                     </span> 
-                                    <br> 
                                     <span *ngIf="cr.msg">{{cr.msg}}</span>
                                     <span *ngIf="!cr.msg">Beautiful piece!</span>
                                 </span>
@@ -40,7 +39,7 @@
             <form #replyForm="ngForm" (ngSubmit)="replyComment(replyForm.value)">
                 <mat-form-field appearance="fill">
                     <mat-label class="bg-light" color="primary">Reply</mat-label>
-                    <textarea class="textarea" type="text" matInput ngModel name="msg"></textarea>
+                    <textarea class="textarea" style="font-size:medium;" type="text" matInput ngModel name="msg"></textarea>
                 </mat-form-field>
                 <mat-form-field style="display:none;">
                     <input matInput type="number" name="comment" ngModel [(ngModel)]="det.id">
@@ -48,7 +47,7 @@
                 <div>
                     <mat-form-field>
                         <mat-label class="bg-light" color="primary">Name</mat-label>
-                        <input name="replied_by" matInput ngModel type="text">
+                        <input name="replied_by" style="font-size:medium;" matInput ngModel type="text">
                     </mat-form-field>
                     <input matInput type="number" style="display:none;" name="story" ngModel [(ngModel)]="storyId">
                     <input matInput type="text" style="display:none;" name="poem" ngModel [(ngModel)]="poemId">

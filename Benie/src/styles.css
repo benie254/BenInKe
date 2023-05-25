@@ -5,9 +5,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Denk+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Stylish&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Copse&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: 'Copse', sans-serif; }
 
 .denk{
     font-family: 'Denk One' sans-serif;
@@ -41,12 +43,22 @@ h2 a{
 h3 a{
     font-size: 20px;
 } 
-p, a, span{
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: medium;
+p{
+    font-family: 'Copse', sans-serif;
+    font-size: large;
+}
+.copse, li, button{
+    font-family: 'Copse', sans-serif;
+}
+p{
+    line-height: 25px;
 }
 small{
     font-family: 'Stylish', sans-serif;
+}
+a, span{
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: large;
 }
 
 
@@ -54,8 +66,6 @@ small{
     font-size: smaller;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: 'Josefin Sans', sans-serif; }
 
 .center{
     display:inline-block;
@@ -82,8 +92,11 @@ body { margin: 0; font-family: 'Josefin Sans', sans-serif; }
 input::placeholder{
     color:white;
 }
-a:hover, .poemTitle:hover{
+a:hover, .poemTitle:hover,.warnT:hover{
     color: blueviolet;
+}
+.primT:hover{
+    color:rgb(185, 121, 0);
 }
 .divide {
     display: flex;
@@ -243,7 +256,8 @@ a:hover, .poemTitle:hover{
     display: none;
 }
 textarea{
-    height:100px;width:200px;
+    height:100px;
+    width:200px;
 }
 .top{
     opacity:0.95;font-weight: bolder;
@@ -288,11 +302,6 @@ textarea{
     #back, #follow, #share, #toggle{
         font-size: small;
     }
-    p,h1,h2,h3,h4,h5,h6,small,span{
-        font-size: large;
-        line-height: 27.5px;
-    }
-
 }
 
 @media only screen and (min-width: 552px){
@@ -330,10 +339,6 @@ textarea{
     .featCard{
         width:100%;
     }
-    p,h1,h2,h3,h4,h5,h6,small,span,i,a,button,footer{
-        font-size: xx-large;
-        line-height: 35px;
-    }
 }
 
 
@@ -361,10 +366,6 @@ textarea{
 @media only screen and (min-width:1000px){
     #discussImg{
         min-height:280px;
-    }
-    p,h1,h2,h3,h4,h5,h6,small,span{
-        font-size: large;
-        line-height: 25px;
     }
 }
 @media only screen and (min-width:1024px){

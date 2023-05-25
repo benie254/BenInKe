@@ -10,7 +10,7 @@
         <div class="col-lg-6" *ngFor="let tc of topComments; trackBy: trackByFn" >
             <p class="shadow sm margin-lg padding-lg">
                 <span class="col2 smaller">
-                    {{tc.date | dateAgo}}&nbsp;&nbsp; | &nbsp;&nbsp; <i class="fa-regular fa-circle-user"></i> 
+                    <span>{{tc.date | dateAgo}}&nbsp;<i class="fa-regular fa-circle-user"></i></span>
                     <span *ngIf="tc.commented_by">&nbsp;{{tc.commented_by}}</span>
                     <span *ngIf="!tc.commented_by">&nbsp;Anonymous</span> 
                 </span> 
@@ -22,24 +22,22 @@
                         <form #likeCForm="ngForm" (ngSubmit)="(likeComment(likeCForm.value))">
                             <input type="text" name="like" ngModel style="display:none" [(ngModel)]="liked">
                             <input type="number" name="comment" ngModel style="display:none" [(ngModel)]="tc.id">
-                            <input type="number" name="story" ngModel style="display:none" [(ngModel)]="storyId">
-                            <input type="number" name="poem" ngModel style="display:none" [(ngModel)]="poemId">
                             <span>
                                 <button class="btn col1 btn-sm" type="submit"> 
-                                    <i class="fa-solid fa-star col1"></i> <span class="xsm"> Like</span>
+                                    <i class="fa-solid fa-star col1"></i> <span class="sm"> Like</span>
                                 </button>  
-                                <span class="xsm col2"> {{tc.likes}} likes</span>
+                                <span class="sm col2"> {{tc.likes}} likes</span>
                             </span>
                         </form> 
                     </span>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <button class="btn btn-sm col1" type="button" (click)="copy(tc.id);openBottomSheet()">
-                        <i class="fa-regular fa-comment col1"></i> <span class="xsm"> Reply </span> 
+                        <i class="fa-regular fa-comment col1"></i> <span class="sm"> Reply </span> 
                         &nbsp;&nbsp; 
                     </button> 
                     <span> 
-                        <span class="xsm col2"> 
-                            <a type="button" (click)="copy(tc.id);openBottomSheet()"> &nbsp;{{tc.replies}} replies</a>
+                        <span class="sm col2"> 
+                            <a type="button" (click)="copy(tc.id);openBottomSheet()"> &nbsp;<span class="sm"><span *ngIf="tc.replies">{{tc.replies}}</span><span *ngIf="!tc.replies">0</span> replies</span></a>
                         </span>
                     </span>
                 </span>
@@ -61,10 +59,8 @@
                 <div class="col-md-6" *ngFor="let c of comments">
                     <span class="divide smaller">
                         <span class="col2">
-                            <span>{{c.date | dateAgo}}</span> 
-                            &nbsp;&nbsp; | &nbsp;&nbsp; 
+                            <span>{{c.date | dateAgo}} </span> 
                             <span><i class="fa-regular fa-circle-user"></i></span> 
-                            &nbsp; 
                             <span *ngIf="c.commented_by">&nbsp;{{c.commented_by}}</span>
                             <span *ngIf="!c.commented_by">&nbsp;Anonymous</span>
                         </span> 
@@ -81,20 +77,20 @@
                                     <input type="number" name="comment" ngModel style="display:none" [(ngModel)]="c.id">
                                     <span>
                                         <button class="btn col1 btn-sm" type="submit"> 
-                                            <i class="fa-solid fa-star col1"></i> <span class="xsm"> Like</span>
+                                            <i class="fa-solid fa-star col1"></i> <span class="sm"> Like</span>
                                         </button>  
-                                        <span class="xsm col2"> {{c.likes}} likes</span>
+                                        <span class="sm col2"> {{c.likes}} likes</span>
                                     </span>
                                 </form> 
                             </span> 
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                             <button class="btn btn-sm col1" type="button" (click)="copy(c.id);openBottomSheet()"> 
-                                <i class="fa-regular fa-comment col1"></i> <span class="xsm"> Reply </span> 
+                                <i class="fa-regular fa-comment col1"></i> <span class="sm"> Reply </span> 
                                 &nbsp;&nbsp; 
                             </button> 
                             <span> 
-                                <span class="xsm col2"> 
-                                    <a type="button" (click)="copy(c.id);openBottomSheet()"> &nbsp;{{c.replies}} replies</a>
+                                <span class="sm col2"> 
+                                    <a type="button" (click)="copy(c.id);openBottomSheet()"> &nbsp;<span class="sm"><span *ngIf="c.replies">{{c.replies}}</span><span *ngIf="!c.replies">0</span> replies</span></a>
                                 </span>
                             </span>
                         </span>
