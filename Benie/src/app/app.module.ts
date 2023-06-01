@@ -39,14 +39,13 @@ import { getAnalytics } from "firebase/analytics";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyB8NL7aDXRJMhmO70VCl_IxSt1vH5MkcnU",
-  authDomain: "notif-d6fbe.firebaseapp.com",
-  databaseURL: "https://notif-d6fbe-default-rtdb.firebaseio.com",
-  projectId: "notif-d6fbe",
-  storageBucket: "notif-d6fbe.appspot.com",
-  messagingSenderId: "649923585220",
-  appId: "1:649923585220:web:a67de8b9808fc392d95591",
-  measurementId: "G-J7BT3LNHY1"
+  apiKey: "AIzaSyBsyzsEmPDgX6lkVWnYWY9LfYh8ybuTdZc",
+  authDomain: "benie-d64a6.firebaseapp.com",
+  projectId: "benie-d64a6",
+  storageBucket: "benie-d64a6.appspot.com",
+  messagingSenderId: "178130125711",
+  appId: "1:178130125711:web:b20f1a1e5701ff77b001fa",
+  measurementId: "G-RJYEE2SBTQ"
 };
 
 // Initialize Firebase
