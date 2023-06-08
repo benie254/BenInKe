@@ -172,4 +172,3 @@ export class EditPageComponent implements OnInit {
     this.editor.destroy();
   }
 }
-

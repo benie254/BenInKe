@@ -22,7 +22,7 @@ export class AdminComponent implements OnInit {
     if(this.authService.currentUserValue){
       this.authenticated = true; 
       this.user = this.authService.currentUserValue;
-      this.router.navigate(['/admin/home/' + this.authService.currentUserValue.username])
+      this.router.navigate(['/admin/home/'])
     } else {
       this.authenticated = false; 
       this.authService.logout();

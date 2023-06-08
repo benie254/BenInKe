@@ -24,18 +24,18 @@ export class AllSubscribersComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    if(!this.auth.currentUserValue){
-      this.auth.logout();
-      this.router.navigate[('/auth')]
-    }else if(!this.auth.currentUserValue.is_staff || !this.auth.currentUserValue.is_superuser){
-      this.auth.logout();
-      this.router.navigate[('/auth')];
-      Notiflix.Report.failure(
-        'Not Permitted!',
-        "Your log in was successful, but you don't have the permissions to access this page.",
-        'Too Bad',
-      )
-    }
+    // if(!this.auth.currentUserValue){
+    //   this.auth.logout();
+    //   this.router.navigate[('/auth')]
+    // }else if(!this.auth.currentUserValue.is_staff || !this.auth.currentUserValue.is_superuser){
+    //   this.auth.logout();
+    //   this.router.navigate[('/auth')];
+    //   Notiflix.Report.failure(
+    //     'Not Permitted!',
+    //     "Your log in was successful, but you don't have the permissions to access this page.",
+    //     'Too Bad',
+    //   )
+    // }
     this.allRecords();
   }
   allRecords(){

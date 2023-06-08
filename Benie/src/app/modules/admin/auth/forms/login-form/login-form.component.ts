@@ -13,7 +13,6 @@ import { MyErrorStateMatcher } from '../../services/matcher/matcher.service';
   styleUrls: ['./login-form.component.css']
 })
 export class LoginFormComponent implements OnInit {
-  company: string = 'Pebo Kenya Ltd'
   authenticated: boolean = false;
   matcher = new MyErrorStateMatcher();
   private unsubscribe$ = new Subject<void>();
@@ -46,8 +45,7 @@ export class LoginFormComponent implements OnInit {
         Notiflix.Loading.remove();
                 Notiflix.Notify.success('Welcome, ' + data.username);
                 console.warn("token:",this.authService.currentUserValue);
-                console.warn("admin:",this.authService.currentUserValue.is_superuser);
-                if(this.authService.currentUserValue.is_staff === true){
+                if(this.authService.currentUserValue){
                   this.router.navigate(['/admin/home'])
                   this.authenticated = true;
                 }else{
@@ -58,8 +56,6 @@ export class LoginFormComponent implements OnInit {
                     location.reload();
                   },5)
                 }
-                this.router.navigate(['/admin/home'])
-                this.authenticated = true;
               }
     }
         );

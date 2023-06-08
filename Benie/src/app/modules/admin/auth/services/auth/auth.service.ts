@@ -26,6 +26,7 @@ export class AuthService {
   
   constructor(
     private handler: ReqHandlerService,
+    private http: HttpClient,
     ) {
       this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
       this.currentUser = this.currentUserSubject.asObservable();
@@ -48,7 +49,7 @@ export class AuthService {
     }));
   }
   register(userData: User): Observable<User> {
-    return this.handler.handlePOST<User>(this.apiReg, userData);
+    return this.http.post<User>(this.apiReg, userData);
   }
   logout() {
     // return this.http.get<any>(this.apiLogout);

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ReqHandlerService } from 'src/app/helpers/requests/req-handler.service';
 
-const apiURL = 'https://ben-in-ke-backend-nvp1.vercel.app/';
+const apiURL = 'https://ben-in-ke-backend-nvp1.vercel.app/api/';
 const adminURL = 'https://ben-in-ke-backend-nvp1.vercel.app/api/admin/';
 // const apiURL = 'http://127.0.0.1:8000/api/';
 // const adminURL = 'http://127.0.0.1:8000/api/admin/'

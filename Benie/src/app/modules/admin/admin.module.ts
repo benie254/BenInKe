@@ -56,6 +56,8 @@ import { NgxEditorModule } from 'ngx-editor';
 import {MatExpansionModule} from '@angular/material/expansion'
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { NavigationModule } from '../navigation/navigation.module';
+import { RegisterComponent } from './auth/components/register/register.component';
+import { RegFormComponent } from './auth/forms/reg-form/reg-form.component';
 
 @NgModule({
   declarations: [
@@ -101,6 +103,8 @@ import { NavigationModule } from '../navigation/navigation.module';
     DialogForm,
     PageDialogForm,
     ResetRequestFormComponent,
+    RegisterComponent,
+    RegFormComponent,
   ],
   imports: [
     CommonModule,
