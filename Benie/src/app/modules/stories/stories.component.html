@@ -11,28 +11,28 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item dropdown">
-            <a class="col1 copse nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="col1 copse nav-link dropdown-toggle md" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Categories
             </a>
             <ul class="dropdown-menu">
-              <li><a class="col1 dropdown-item" routerLink="/stories/related/category/short-story" (click)="reload()">Short Stories</a></li>
-              <li><a class="col1 dropdown-item" routerLink="/stories/related/category/flash-fiction" (click)="reload()">Flash Fiction</a></li>
-              <li><a class="col1 dropdown-item" routerLink="/stories/related/category/novelette" (click)="reload()">Novelettes</a></li>
-              <li><a class="col1 dropdown-item" routerLink="/stories/related/category/novel" (click)="reload()">Novels</a></li>
-              <li><a class="col1 dropdown-item" routerLink="/stories/related/category/play" (click)="reload()">Plays</a></li>
+              <li><a class="col1 dropdown-item copse" routerLink="/stories/related/category/short-story" (click)="reload()">Short Stories</a></li>
+              <li><a class="col1 dropdown-item copse" routerLink="/stories/related/category/flash-fiction" (click)="reload()">Flash Fiction</a></li>
+              <li><a class="col1 dropdown-item copse" routerLink="/stories/related/category/novelette" (click)="reload()">Novelettes</a></li>
+              <li><a class="col1 dropdown-item copse" routerLink="/stories/related/category/novel" (click)="reload()">Novels</a></li>
+              <li><a class="col1 dropdown-item copse" routerLink="/stories/related/category/play" (click)="reload()">Plays</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown">
-            <a class="col1 copse nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="col1 copse nav-link dropdown-toggle md" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Genres
             </a>
             <ul class="dropdown-menu">
-              <li><a class="col1 dropdown-item" routerLink="/stories/related/genre/mystery" (click)="reload()">Mystery</a></li>
-                      <li><a class="col1 dropdown-item" routerLink="/stories/related/genre/thriller" (click)="reload()">Thriller</a></li>
-                      <li><a class="col1 dropdown-item" routerLink="/stories/related/genre/mystery-thriller" (click)="reload()">Mystery/Thriller</a></li>
-                      <li><a class="col1 dropdown-item" routerLink="/stories/related/genre/young-adult" (click)="reload()">Young Adult</a></li>
-                      <li><a class="col1 dropdown-item" routerLink="/stories/related/genre/teen-fiction" (click)="reload()">Teen Fiction</a></li>
-                      <li><a class="col1 dropdown-item" routerLink="/stories/related/genre/romance" (click)="reload()">Romance</a></li>
+              <li><a class="col1 dropdown-item copse" routerLink="/stories/related/genre/mystery" (click)="reload()">Mystery</a></li>
+              <li><a class="col1 dropdown-item copse" routerLink="/stories/related/genre/thriller" (click)="reload()">Thriller</a></li>
+              <li><a class="col1 dropdown-item copse" routerLink="/stories/related/genre/mystery-thriller" (click)="reload()">Mystery/Thriller</a></li>
+              <li><a class="col1 dropdown-item copse" routerLink="/stories/related/genre/young-adult" (click)="reload()">Young Adult</a></li>
+              <li><a class="col1 dropdown-item copse" routerLink="/stories/related/genre/teen-fiction" (click)="reload()">Teen Fiction</a></li>
+              <li><a class="col1 dropdown-item copse" routerLink="/stories/related/genre/romance" (click)="reload()">Romance</a></li>
             </ul>
           </li>
         </ul>
@@ -43,12 +43,12 @@
             </a>
           </li>
           <li class="nav-item dropdown">
-            <a class="col1 copse nav-link dropdown-toggle" routerLink="/stories" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="col1 copse nav-link dropdown-toggle md" routerLink="/stories" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Go to
             </a>
             <ul class="dropdown-menu">
-              <li><a class="col1 dropdown-item" routerLink="/poems">Poems</a></li>
-              <li><a class="col1 dropdown-item" routerLink="/discussions">Discussions</a></li>
+              <li><a class="col1 dropdown-item copse" routerLink="/poems">Poems</a></li>
+              <li><a class="col1 dropdown-item copse" routerLink="/discussions">Discussions</a></li>
             </ul>
           </li>
         </ul>
@@ -108,7 +108,7 @@
     <br>
       
  </div>
- <div class="container-fluid shadow padding-xxl" style="background-color: white;">
+ <div class="container-fluid shadow padding-lg" style="background-color: white;">
   <div class="row" *ngIf="completed">
       <h1 class="text-center col1">Completed Stories</h1>
       <div class="col-md-6" *ngFor="let s of topCom">

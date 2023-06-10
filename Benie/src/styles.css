@@ -288,16 +288,12 @@ textarea{
     .footer{
         font-size:1px;
     }
-    .featImg{
-        min-height:420px;
-        width:100%;
-    }
 }
 
 @media only screen and (min-width: 480px) {
     .cardImg{
         height:290px;
-        width:220px;
+        width:200px;
     }
     #back, #follow, #share, #toggle{
         font-size: small;
@@ -330,11 +326,11 @@ textarea{
 @media only screen and (min-width: 768px) {
     .cardImg{
         height:320px;
-        width:250px;
+        width:220px;
     }
     .featImg{
         height:420px;
-        width:330px;
+        width:280px;
     }
     .featCard{
         width:100%;
@@ -385,7 +381,7 @@ textarea{
     }
     .featImg{
         height:400px;
-        width:330px;
+        width:280px;
     }
     .storyCard{
         width: 100%;

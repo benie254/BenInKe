@@ -33,6 +33,7 @@ export class SubscribeComponent implements OnInit {
       next: (res) => {
         Notiflix.Loading.remove();
         this.subInput = false;
+        this.reset();
         Notiflix.Report.success(
           "You're In!",
           'Your subscription was successful. Please check your email for more information.',
@@ -40,5 +41,11 @@ export class SubscribeComponent implements OnInit {
         )
       }
     })
+  }
+  reset(){
+    const form = (<HTMLFormElement>document.getElementById('subForm'));
+    setTimeout(() => {
+      form.reset();
+    }, 250)
   }
 }

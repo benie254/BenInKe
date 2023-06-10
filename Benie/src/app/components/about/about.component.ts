@@ -14,7 +14,7 @@ export class AboutComponent implements OnInit {
   currentSite = window.location.href;
   author = 'Benie Langat';
   tag = 'With words, I give my thoughts life.';
-  about = 'Benie is a passionate writer and software developer. He enjoys the challenge in chess and loves the freedom in swimming. He loves music and art.';
+  about = 'Benie is a passionate writer and full-stack Software Developer, living in Nairobi, Kenya. He built a writing career freelance-writing articles, blogging, and publishing stories on Wattpad. In his free time, he plays chess and select video games. He enjoys swimming and loves music & art.';
   closing = 'Benie writes from the depths of the heart, for you and for his soul.';
   img = 'https://res.cloudinary.com/benie/image/upload/v1670974359/undraw_reading_book_re_kqpk_y5d2ju.svg';
   authorImg = 'https://res.cloudinary.com/benie/image/upload/v1671583589/IMG_20220119_175206_763_lb4sg3-removebg-preview_dkprqf.png';
@@ -45,6 +45,7 @@ export class AboutComponent implements OnInit {
       next: (res) => {
         Notiflix.Loading.remove();
         this.noInput = true;
+        this.reset();
         Notiflix.Report.success(
           'Message Sent!',
           "Your message was successfully delivered to Benie. Please check your email for a confirmation.",
@@ -52,6 +53,12 @@ export class AboutComponent implements OnInit {
         )
       }
     })
+  }
+  reset(){
+    const form = (<HTMLFormElement>document.getElementById('contactForm'));
+    setTimeout(() => {
+      form.reset();
+    }, 250)
   }
 }
 

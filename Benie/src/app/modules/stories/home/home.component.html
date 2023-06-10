@@ -11,11 +11,11 @@
             <app-ongoing-stories></app-ongoing-stories>
     </mat-tab>
     <mat-tab>
-        <ng-template matTabLabel>
-           <span class="position-relative">
+        <ng-template matTabLabel class="position-relative">
+          
             Notifications &nbsp;&nbsp; <span *ngIf="latestNotifs.length" class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
             <span class="visually-hidden">New alerts</span>
-          </span>
+         
            </span>
         </ng-template>
         <app-notifications [latestNotifs]="latestNotifs" [notifs]="notifs"></app-notifications>
