@@ -19,7 +19,7 @@ export class AppComponent {
     this.meta.updateTag({name: 'title', content: 'Benie Writes'}) 
     this.meta.updateTag({name: 'description', content: 'A home for stories, poems, discussions'}) 
     this.meta.updateTag({name: 'image', content: 'https://res.cloudinary.com/benie/image/upload/v1671558026/IMG_20220119_175258_460-modified_yhqkhm.png'}) 
-    this.meta.updateTag({name: 'site', content: 'https://benie.web.app'}) 
+    this.meta.updateTag({name: 'site', content: 'https://janja.web.app'}) 
     
   }
 }
