@@ -20,10 +20,10 @@
           </li>
         </ul>
         <div>
-          <span *ngIf="!isAdmin">
+          <span *ngIf="!authenticated">
             <a class="col1 nav-link active primT brand-font" aria-current="page" href="/about">About</a>
           </span>
-          <span *ngIf="isAdmin">
+          <span *ngIf="authenticated">
             <a class="col1 nav-link active font-md-3 brand-font" aria-current="page" type="button" (click)="logout()">Logout</a>
           </span>
         </div>

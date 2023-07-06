@@ -64,8 +64,10 @@ export class AddPoemComponent implements OnInit, OnDestroy {
     this.editor = new Editor();
   }
   addItem(data: any){
+    Notiflix.Loading.dots('posting...')
     this.poetryService.postPoem(data).subscribe({
       next: (res) => {
+        Notiflix.Loading.remove();
         Notiflix.Notify.success('Added!');
       }
     });

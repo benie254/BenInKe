@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
   brand = 'https://res.cloudinary.com/benie/image/upload/v1671555324/h02js8etvetdr5ctbmtf-removebg-preview_wge6nt.png';
-  @Input() isAdmin = false;
+  @Input() authenticated = false;
   @Input() logout: () => void;
   @Input() user: any;
 

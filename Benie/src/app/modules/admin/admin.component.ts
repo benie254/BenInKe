@@ -28,11 +28,11 @@ export class AdminComponent implements OnInit {
       this.authService.logout();
       this.router.navigate(['/admin']);
     }
-    if(this.authService.currentUserValue && this.authService.currentUserValue.is_staff == true){
-      this.isAdmin = true;
-    }else{
-      this.isAdmin = false;
-    }
+    // if(this.authService.currentUserValue && this.authService.currentUserValue.is_staff == true){
+    //   this.isAdmin = true;
+    // }else{
+    //   this.isAdmin = false;
+    // }
   }
   logout = (): void => {
     this.authService.logout();

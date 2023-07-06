@@ -58,6 +58,8 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
 import { NavigationModule } from '../navigation/navigation.module';
 import { RegisterComponent } from './auth/components/register/register.component';
 import { RegFormComponent } from './auth/forms/reg-form/reg-form.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ReqInterceptor } from 'src/app/helpers/interceptor/req.interceptor';
 
 @NgModule({
   declarations: [
@@ -123,6 +125,9 @@ import { RegFormComponent } from './auth/forms/reg-form/reg-form.component';
     AngularEditorModule,
     MatExpansionModule,
     NavigationModule,
-  ]
+  ],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: ReqInterceptor, multi: true }
+  ],
 })
 export class AdminModule { }
